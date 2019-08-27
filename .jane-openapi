@@ -1,0 +1,7 @@
+<?php
+
+return [
+    'openapi-file' => 'https://api.chargehive.com/swagger.json',
+    'namespace' => 'ChargeHive\\Php\\Sdk\\Generated',
+    'directory' => __DIR__ . '/generated',
+];

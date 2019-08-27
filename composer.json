@@ -1,0 +1,19 @@
+{
+  "name": "chargehive/php-sdk",
+  "description": "ChargeHive PHP SDK",
+  "type": "library",
+  "require": {
+    "guzzlehttp/psr7": "^1.6",
+    "php-http/message": "^1.8",
+    "php-http/guzzle6-adapter": "^2.0"
+  },
+  "require-dev": {
+    "jane-php/open-api": "4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ChargeHive\\Php\\Sdk\\Generated\\": "generated/",
+      "ChargeHive\\Php\\Sdk\\Client\\": "src/"
+    }
+  }
+}
