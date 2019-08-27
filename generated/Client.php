@@ -46,7 +46,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
         if (null === $httpClient) {
             $httpClient = \Http\Discovery\HttpClientDiscovery::find();
             $plugins = array();
-            $uri = \Http\Discovery\UriFactoryDiscovery::find()->createUri('https://a13efb2e.ngrok.io');
+            $uri = \Http\Discovery\UriFactoryDiscovery::find()->createUri('https://api.chargehive.com');
             $plugins[] = new \Http\Client\Common\Plugin\AddHostPlugin($uri);
             $httpClient = new \Http\Client\Common\PluginClient($httpClient, $plugins);
         }
