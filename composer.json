@@ -4,8 +4,7 @@
   "type": "library",
   "require": {
     "guzzlehttp/psr7": "^1.6",
-    "php-http/message": "^1.8",
-    "php-http/guzzle6-adapter": "^2.0"
+    "php-http/message": "^1.8"
   },
   "require-dev": {
     "jane-php/open-api": "4.*"
