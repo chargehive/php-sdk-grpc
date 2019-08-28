@@ -13,7 +13,7 @@ class ChargeCapture extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      */
     public function __construct(string $chargeId, \ChargeHive\Php\Sdk\Generated\Model\ChargehiveChargeCaptureRequest $body)
     {
-        $this->chargeId = $chargeId;
+        $this->charge_id = $chargeId;
         $this->body = $body;
     }
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
@@ -39,7 +39,7 @@ class ChargeCapture extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @return null|\ChargeHive\Php\Sdk\Generated\Model\ChargehiveChargeCaptureResponse
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeCaptureResponse', 'json');
