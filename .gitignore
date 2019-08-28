@@ -1,2 +1,3 @@
 /vendor/*
 /api.swagger.json
+/composer.lock

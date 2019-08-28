@@ -31,6 +31,9 @@ class ChargehiveChargeCaptureResponseNormalizer implements DenormalizerInterface
         if (property_exists($data, 'acknowledged')) {
             $object->setAcknowledged($data->{'acknowledged'});
         }
+        if (property_exists($data, 'process_id')) {
+            $object->setProcessId($data->{'process_id'});
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -38,6 +41,9 @@ class ChargehiveChargeCaptureResponseNormalizer implements DenormalizerInterface
         $data = new \stdClass();
         if (null !== $object->getAcknowledged()) {
             $data->{'acknowledged'} = $object->getAcknowledged();
+        }
+        if (null !== $object->getProcessId()) {
+            $data->{'process_id'} = $object->getProcessId();
         }
         return $data;
     }
