@@ -4,7 +4,7 @@
   "type": "library",
   "require": {
     "php": ">=7.2",
-    "jane-php/jane-php": "4.x-dev",
+    "jane-php/jane-php": "4.4.0.1",
     "guzzlehttp/psr7": "^1.6",
     "php-http/message": "^1.8"
   },
