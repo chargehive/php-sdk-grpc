@@ -61,4 +61,30 @@ class ChargeHiveClient extends Client
     return $this;
   }
 
+  public static function create($apiHost = null)
+  {
+    if($apiHost === null)
+    {
+      return parent::create();
+    }
+
+    $httpClient = \Http\Discovery\HttpClientDiscovery::find();
+    $plugins = [];
+    $uri = \Http\Discovery\UriFactoryDiscovery::find()->createUri($apiHost);
+    $plugins[] = new \Http\Client\Common\Plugin\AddHostPlugin($uri);
+    $pluginClient = new \Http\Client\Common\PluginClient($httpClient, $plugins);
+
+    $messageFactory = \Http\Discovery\MessageFactoryDiscovery::find();
+    $streamFactory = \Http\Discovery\StreamFactoryDiscovery::find();
+    $serializer = new \Symfony\Component\Serializer\Serializer(
+      \ChargeHive\Php\Sdk\Generated\Normalizer\NormalizerFactory::create(),
+      [
+        new \Symfony\Component\Serializer\Encoder\JsonEncoder(
+          new \Symfony\Component\Serializer\Encoder\JsonEncode(),
+          new \Symfony\Component\Serializer\Encoder\JsonDecode()
+        ),
+      ]
+    );
+    return new static($pluginClient, $messageFactory, $serializer, $streamFactory);
+  }
 }

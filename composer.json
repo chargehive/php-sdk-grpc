@@ -3,6 +3,7 @@
   "description": "ChargeHive PHP SDK",
   "type": "library",
   "require": {
+    "php": ">=7.2",
     "jane-php/open-api-runtime": "4.*",
     "guzzlehttp/psr7": "^1.6",
     "php-http/message": "^1.8"
