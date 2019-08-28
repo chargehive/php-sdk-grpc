@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChargehiveChargeCaptureRequest
+class ChargehiveChargeFraudScanRequest
 {
     /**
      * 
@@ -13,9 +13,9 @@ class ChargehiveChargeCaptureRequest
     /**
      * 
      *
-     * @var ChtypeAmount
+     * @var string[]
      */
-    protected $amount;
+    protected $additionalData;
     /**
      * 
      *
@@ -40,22 +40,22 @@ class ChargehiveChargeCaptureRequest
     /**
      * 
      *
-     * @return ChtypeAmount
+     * @return string[]
      */
-    public function getAmount() : ChtypeAmount
+    public function getAdditionalData() : \ArrayObject
     {
-        return $this->amount;
+        return $this->additionalData;
     }
     /**
      * 
      *
-     * @param ChtypeAmount $amount
+     * @param string[] $additionalData
      *
      * @return self
      */
-    public function setAmount(ChtypeAmount $amount) : self
+    public function setAdditionalData(\ArrayObject $additionalData) : self
     {
-        $this->amount = $amount;
+        $this->additionalData = $additionalData;
         return $this;
     }
 }

@@ -10,40 +10,42 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-class ChargehiveChargeCaptureRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class ChargehiveChargeFraudScanResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeCaptureRequest';
+        return $type === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeFraudScanResponse';
     }
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeCaptureRequest';
+        return get_class($data) === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeFraudScanResponse';
     }
     public function denormalize($data, $class, $format = null, array $context = array())
     {
         if (!is_object($data)) {
             throw new InvalidArgumentException();
         }
-        $object = new \ChargeHive\Php\Sdk\Generated\Model\ChargehiveChargeCaptureRequest();
-        if (property_exists($data, 'charge_id')) {
-            $object->setChargeId($data->{'charge_id'});
-        }
-        if (property_exists($data, 'amount')) {
-            $object->setAmount($this->denormalizer->denormalize($data->{'amount'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeAmount', 'json', $context));
+        $object = new \ChargeHive\Php\Sdk\Generated\Model\ChargehiveChargeFraudScanResponse();
+        if (property_exists($data, 'results')) {
+            $values = array();
+            foreach ($data->{'results'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeFraudResult', 'json', $context);
+            }
+            $object->setResults($values);
         }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
     {
         $data = new \stdClass();
-        if (null !== $object->getChargeId()) {
-            $data->{'charge_id'} = $object->getChargeId();
-        }
-        if (null !== $object->getAmount()) {
-            $data->{'amount'} = $this->normalizer->normalize($object->getAmount(), 'json', $context);
+        if (null !== $object->getResults()) {
+            $values = array();
+            foreach ($object->getResults() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'results'} = $values;
         }
         return $data;
     }

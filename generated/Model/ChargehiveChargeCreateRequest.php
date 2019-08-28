@@ -13,7 +13,7 @@ class ChargehiveChargeCreateRequest
     /**
      * 
      *
-     * @var ChargehiveAmount
+     * @var ChtypeAmount
      */
     protected $amount;
     /**
@@ -58,20 +58,20 @@ class ChargehiveChargeCreateRequest
     /**
      * 
      *
-     * @return ChargehiveAmount
+     * @return ChtypeAmount
      */
-    public function getAmount() : ChargehiveAmount
+    public function getAmount() : ChtypeAmount
     {
         return $this->amount;
     }
     /**
      * 
      *
-     * @param ChargehiveAmount $amount
+     * @param ChtypeAmount $amount
      *
      * @return self
      */
-    public function setAmount(ChargehiveAmount $amount) : self
+    public function setAmount(ChtypeAmount $amount) : self
     {
         $this->amount = $amount;
         return $this;

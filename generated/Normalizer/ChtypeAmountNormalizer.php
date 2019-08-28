@@ -10,40 +10,40 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-class ChargehiveChargeCaptureRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class ChtypeAmountNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeCaptureRequest';
+        return $type === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeAmount';
     }
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeCaptureRequest';
+        return get_class($data) === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeAmount';
     }
     public function denormalize($data, $class, $format = null, array $context = array())
     {
         if (!is_object($data)) {
             throw new InvalidArgumentException();
         }
-        $object = new \ChargeHive\Php\Sdk\Generated\Model\ChargehiveChargeCaptureRequest();
-        if (property_exists($data, 'charge_id')) {
-            $object->setChargeId($data->{'charge_id'});
+        $object = new \ChargeHive\Php\Sdk\Generated\Model\ChtypeAmount();
+        if (property_exists($data, 'units')) {
+            $object->setUnits($data->{'units'});
         }
-        if (property_exists($data, 'amount')) {
-            $object->setAmount($this->denormalizer->denormalize($data->{'amount'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeAmount', 'json', $context));
+        if (property_exists($data, 'currency')) {
+            $object->setCurrency($data->{'currency'});
         }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
     {
         $data = new \stdClass();
-        if (null !== $object->getChargeId()) {
-            $data->{'charge_id'} = $object->getChargeId();
+        if (null !== $object->getUnits()) {
+            $data->{'units'} = $object->getUnits();
         }
-        if (null !== $object->getAmount()) {
-            $data->{'amount'} = $this->normalizer->normalize($object->getAmount(), 'json', $context);
+        if (null !== $object->getCurrency()) {
+            $data->{'currency'} = $object->getCurrency();
         }
         return $data;
     }

@@ -32,7 +32,7 @@ class ChargehiveChargeCreateRequestNormalizer implements DenormalizerInterface, 
             $object->setMerchantReference($data->{'merchant_reference'});
         }
         if (property_exists($data, 'amount')) {
-            $object->setAmount($this->denormalizer->denormalize($data->{'amount'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveAmount', 'json', $context));
+            $object->setAmount($this->denormalizer->denormalize($data->{'amount'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeAmount', 'json', $context));
         }
         if (property_exists($data, 'PaymentMethodIds')) {
             $values = array();

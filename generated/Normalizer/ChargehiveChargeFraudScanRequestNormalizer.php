@@ -10,29 +10,33 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-class ChargehiveChargeCaptureRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class ChargehiveChargeFraudScanRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeCaptureRequest';
+        return $type === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeFraudScanRequest';
     }
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeCaptureRequest';
+        return get_class($data) === 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeFraudScanRequest';
     }
     public function denormalize($data, $class, $format = null, array $context = array())
     {
         if (!is_object($data)) {
             throw new InvalidArgumentException();
         }
-        $object = new \ChargeHive\Php\Sdk\Generated\Model\ChargehiveChargeCaptureRequest();
+        $object = new \ChargeHive\Php\Sdk\Generated\Model\ChargehiveChargeFraudScanRequest();
         if (property_exists($data, 'charge_id')) {
             $object->setChargeId($data->{'charge_id'});
         }
-        if (property_exists($data, 'amount')) {
-            $object->setAmount($this->denormalizer->denormalize($data->{'amount'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeAmount', 'json', $context));
+        if (property_exists($data, 'additional_data')) {
+            $values = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'additional_data'} as $key => $value) {
+                $values[$key] = $value;
+            }
+            $object->setAdditionalData($values);
         }
         return $object;
     }
@@ -42,8 +46,12 @@ class ChargehiveChargeCaptureRequestNormalizer implements DenormalizerInterface,
         if (null !== $object->getChargeId()) {
             $data->{'charge_id'} = $object->getChargeId();
         }
-        if (null !== $object->getAmount()) {
-            $data->{'amount'} = $this->normalizer->normalize($object->getAmount(), 'json', $context);
+        if (null !== $object->getAdditionalData()) {
+            $values = new \stdClass();
+            foreach ($object->getAdditionalData() as $key => $value) {
+                $values->{$key} = $value;
+            }
+            $data->{'additional_data'} = $values;
         }
         return $data;
     }
