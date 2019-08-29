@@ -14,11 +14,17 @@ class NormalizerFactory
         $normalizers[] = new ChargehiveChargeCreateResponseNormalizer();
         $normalizers[] = new ChargehiveChargeFraudScanRequestNormalizer();
         $normalizers[] = new ChargehiveChargeFraudScanResponseNormalizer();
+        $normalizers[] = new ChargehiveMethodUpdateRequestNormalizer();
+        $normalizers[] = new ChargehiveMethodUpdateResponseNormalizer();
         $normalizers[] = new ChargehiveStringTransportNormalizer();
+        $normalizers[] = new ChargehiveSupportedMethodUpdateTypesNormalizer();
         $normalizers[] = new ChtypeAmountNormalizer();
         $normalizers[] = new ChtypeFraudFactorNormalizer();
         $normalizers[] = new ChtypeFraudResultNormalizer();
         $normalizers[] = new ChtypeFraudScoreNormalizer();
+        $normalizers[] = new ChtypePaymentMethodNormalizer();
+        $normalizers[] = new ChtypePaymentMethodInfoNormalizer();
+        $normalizers[] = new ChtypePaymentMethodSchemaCardNormalizer();
         return $normalizers;
     }
 }
