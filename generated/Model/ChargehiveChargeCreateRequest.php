@@ -37,6 +37,12 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
     /**
      * 
      *
+     * @var string
+     */
+    protected $environment = 'CHARGE_ENVIRONMENT_INVALID';
+    /**
+     * 
+     *
      * @return string
      */
     public function getMerchantReference()
@@ -139,8 +145,29 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
         $this->contractType = $contractType;
         return $this;
     }
+    /**
+     * 
+     *
+     * @return string
+     */
+    public function getEnvironment()
+    {
+        return $this->environment;
+    }
+    /**
+     * 
+     *
+     * @param string $environment
+     *
+     * @return self
+     */
+    public function setEnvironment(string $environment)
+    {
+        $this->environment = $environment;
+        return $this;
+    }
     public function jsonSerialize()
     {
-        return ['merchantReference' => $this->merchantReference, 'amount' => $this->amount, 'paymentMethodIds' => $this->paymentMethodIds, 'expiryTime' => $this->expiryTime, 'contractType' => $this->contractType];
+        return ['merchantReference' => $this->merchantReference, 'amount' => $this->amount, 'paymentMethodIds' => $this->paymentMethodIds, 'expiryTime' => $this->expiryTime, 'contractType' => $this->contractType, 'environment' => $this->environment];
     }
 }

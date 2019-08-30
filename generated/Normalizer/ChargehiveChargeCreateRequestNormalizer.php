@@ -47,6 +47,9 @@ class ChargehiveChargeCreateRequestNormalizer implements DenormalizerInterface, 
         if (property_exists($data, 'contract_type')) {
             $object->setContractType($data->{'contract_type'});
         }
+        if (property_exists($data, 'environment')) {
+            $object->setEnvironment($data->{'environment'});
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -70,6 +73,9 @@ class ChargehiveChargeCreateRequestNormalizer implements DenormalizerInterface, 
         }
         if (null !== $object->getContractType()) {
             $data->{'contract_type'} = $object->getContractType();
+        }
+        if (null !== $object->getEnvironment()) {
+            $data->{'environment'} = $object->getEnvironment();
         }
         return $data;
     }
