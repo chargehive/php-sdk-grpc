@@ -16,6 +16,8 @@ class NormalizerFactory
         $normalizers[] = new ChargehiveChargeCreateResponseNormalizer();
         $normalizers[] = new ChargehiveChargeFraudScanRequestNormalizer();
         $normalizers[] = new ChargehiveChargeFraudScanResponseNormalizer();
+        $normalizers[] = new ChargehiveChargeModifyRequestNormalizer();
+        $normalizers[] = new ChargehiveChargeModifyResponseNormalizer();
         $normalizers[] = new ChargehiveMethodUpdateRequestNormalizer();
         $normalizers[] = new ChargehiveMethodUpdateResponseNormalizer();
         $normalizers[] = new ChargehiveStringTransportNormalizer();
