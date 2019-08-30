@@ -21,7 +21,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@github.com:TomK/janephp.git"
+      "url": "git@github.com:packaged/janephp.git"
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChargehiveChargeCreateRequest
+class ChargehiveChargeCreateRequest implements \JsonSerializable
 {
     /**
      * 
@@ -39,7 +39,7 @@ class ChargehiveChargeCreateRequest
      *
      * @return string
      */
-    public function getMerchantReference() : string
+    public function getMerchantReference()
     {
         return $this->merchantReference;
     }
@@ -50,7 +50,7 @@ class ChargehiveChargeCreateRequest
      *
      * @return self
      */
-    public function setMerchantReference(string $merchantReference) : self
+    public function setMerchantReference(string $merchantReference)
     {
         $this->merchantReference = $merchantReference;
         return $this;
@@ -60,7 +60,7 @@ class ChargehiveChargeCreateRequest
      *
      * @return ChtypeAmount
      */
-    public function getAmount() : ChtypeAmount
+    public function getAmount()
     {
         return $this->amount;
     }
@@ -71,7 +71,7 @@ class ChargehiveChargeCreateRequest
      *
      * @return self
      */
-    public function setAmount(ChtypeAmount $amount) : self
+    public function setAmount(ChtypeAmount $amount)
     {
         $this->amount = $amount;
         return $this;
@@ -81,7 +81,7 @@ class ChargehiveChargeCreateRequest
      *
      * @return string[]
      */
-    public function getPaymentMethodIds() : array
+    public function getPaymentMethodIds()
     {
         return $this->paymentMethodIds;
     }
@@ -92,7 +92,7 @@ class ChargehiveChargeCreateRequest
      *
      * @return self
      */
-    public function setPaymentMethodIds(array $paymentMethodIds) : self
+    public function setPaymentMethodIds(array $paymentMethodIds)
     {
         $this->paymentMethodIds = $paymentMethodIds;
         return $this;
@@ -102,7 +102,7 @@ class ChargehiveChargeCreateRequest
      *
      * @return \DateTime
      */
-    public function getExpiryTime() : \DateTime
+    public function getExpiryTime()
     {
         return $this->expiryTime;
     }
@@ -113,7 +113,7 @@ class ChargehiveChargeCreateRequest
      *
      * @return self
      */
-    public function setExpiryTime(\DateTime $expiryTime) : self
+    public function setExpiryTime(\DateTime $expiryTime)
     {
         $this->expiryTime = $expiryTime;
         return $this;
@@ -123,7 +123,7 @@ class ChargehiveChargeCreateRequest
      *
      * @return string
      */
-    public function getContractType() : string
+    public function getContractType()
     {
         return $this->contractType;
     }
@@ -134,9 +134,13 @@ class ChargehiveChargeCreateRequest
      *
      * @return self
      */
-    public function setContractType(string $contractType) : self
+    public function setContractType(string $contractType)
     {
         $this->contractType = $contractType;
         return $this;
+    }
+    public function jsonSerialize()
+    {
+        return ['merchantReference' => $this->merchantReference, 'amount' => $this->amount, 'paymentMethodIds' => $this->paymentMethodIds, 'expiryTime' => $this->expiryTime, 'contractType' => $this->contractType];
     }
 }

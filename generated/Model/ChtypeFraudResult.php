@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChtypeFraudResult
+class ChtypeFraudResult implements \JsonSerializable
 {
     /**
      * 
@@ -45,7 +45,7 @@ class ChtypeFraudResult
      *
      * @return string
      */
-    public function getFraudCheckId() : string
+    public function getFraudCheckId()
     {
         return $this->fraudCheckId;
     }
@@ -56,7 +56,7 @@ class ChtypeFraudResult
      *
      * @return self
      */
-    public function setFraudCheckId(string $fraudCheckId) : self
+    public function setFraudCheckId(string $fraudCheckId)
     {
         $this->fraudCheckId = $fraudCheckId;
         return $this;
@@ -66,7 +66,7 @@ class ChtypeFraudResult
      *
      * @return ChtypeFraudScore
      */
-    public function getOverallScore() : ChtypeFraudScore
+    public function getOverallScore()
     {
         return $this->overallScore;
     }
@@ -77,7 +77,7 @@ class ChtypeFraudResult
      *
      * @return self
      */
-    public function setOverallScore(ChtypeFraudScore $overallScore) : self
+    public function setOverallScore(ChtypeFraudScore $overallScore)
     {
         $this->overallScore = $overallScore;
         return $this;
@@ -87,7 +87,7 @@ class ChtypeFraudResult
      *
      * @return ChtypeFraudScore[]
      */
-    public function getSubScores() : array
+    public function getSubScores()
     {
         return $this->subScores;
     }
@@ -98,7 +98,7 @@ class ChtypeFraudResult
      *
      * @return self
      */
-    public function setSubScores(array $subScores) : self
+    public function setSubScores(array $subScores)
     {
         $this->subScores = $subScores;
         return $this;
@@ -108,7 +108,7 @@ class ChtypeFraudResult
      *
      * @return string
      */
-    public function getSuggestedAction() : string
+    public function getSuggestedAction()
     {
         return $this->suggestedAction;
     }
@@ -119,7 +119,7 @@ class ChtypeFraudResult
      *
      * @return self
      */
-    public function setSuggestedAction(string $suggestedAction) : self
+    public function setSuggestedAction(string $suggestedAction)
     {
         $this->suggestedAction = $suggestedAction;
         return $this;
@@ -129,7 +129,7 @@ class ChtypeFraudResult
      *
      * @return \DateTime
      */
-    public function getScanTime() : \DateTime
+    public function getScanTime()
     {
         return $this->scanTime;
     }
@@ -140,7 +140,7 @@ class ChtypeFraudResult
      *
      * @return self
      */
-    public function setScanTime(\DateTime $scanTime) : self
+    public function setScanTime(\DateTime $scanTime)
     {
         $this->scanTime = $scanTime;
         return $this;
@@ -150,7 +150,7 @@ class ChtypeFraudResult
      *
      * @return string
      */
-    public function getConnectorLibrary() : string
+    public function getConnectorLibrary()
     {
         return $this->connectorLibrary;
     }
@@ -161,9 +161,13 @@ class ChtypeFraudResult
      *
      * @return self
      */
-    public function setConnectorLibrary(string $connectorLibrary) : self
+    public function setConnectorLibrary(string $connectorLibrary)
     {
         $this->connectorLibrary = $connectorLibrary;
         return $this;
+    }
+    public function jsonSerialize()
+    {
+        return ['fraudCheckId' => $this->fraudCheckId, 'overallScore' => $this->overallScore, 'subScores' => $this->subScores, 'suggestedAction' => $this->suggestedAction, 'scanTime' => $this->scanTime, 'connectorLibrary' => $this->connectorLibrary];
     }
 }
