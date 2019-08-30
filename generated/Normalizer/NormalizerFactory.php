@@ -8,6 +8,8 @@ class NormalizerFactory
     {
         $normalizers = array();
         $normalizers[] = new \Symfony\Component\Serializer\Normalizer\ArrayDenormalizer();
+        $normalizers[] = new ChargehiveChargeAuthorizeRequestNormalizer();
+        $normalizers[] = new ChargehiveChargeAuthorizeResponseNormalizer();
         $normalizers[] = new ChargehiveChargeCaptureRequestNormalizer();
         $normalizers[] = new ChargehiveChargeCaptureResponseNormalizer();
         $normalizers[] = new ChargehiveChargeCreateRequestNormalizer();
@@ -19,12 +21,18 @@ class NormalizerFactory
         $normalizers[] = new ChargehiveStringTransportNormalizer();
         $normalizers[] = new ChargehiveSupportedMethodUpdateTypesNormalizer();
         $normalizers[] = new ChtypeAmountNormalizer();
+        $normalizers[] = new ChtypeAttemptDetailNormalizer();
         $normalizers[] = new ChtypeFraudFactorNormalizer();
         $normalizers[] = new ChtypeFraudResultNormalizer();
         $normalizers[] = new ChtypeFraudScoreNormalizer();
         $normalizers[] = new ChtypePaymentMethodNormalizer();
         $normalizers[] = new ChtypePaymentMethodInfoNormalizer();
         $normalizers[] = new ChtypePaymentMethodSchemaCardNormalizer();
+        $normalizers[] = new ChtypeThreeDSResultNormalizer();
+        $normalizers[] = new ChtypeTransactionNormalizer();
+        $normalizers[] = new ChtypeTransactionDetailNormalizer();
+        $normalizers[] = new ChtypeVerificationResultNormalizer();
+        $normalizers[] = new ChtypeVerifyRequestDataNormalizer();
         return $normalizers;
     }
 }
