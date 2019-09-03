@@ -18,6 +18,8 @@ class NormalizerFactory
         $normalizers[] = new ChargehiveChargeFraudScanResponseNormalizer();
         $normalizers[] = new ChargehiveChargeModifyRequestNormalizer();
         $normalizers[] = new ChargehiveChargeModifyResponseNormalizer();
+        $normalizers[] = new ChargehiveChargeRefundRequestNormalizer();
+        $normalizers[] = new ChargehiveChargeRefundResponseNormalizer();
         $normalizers[] = new ChargehiveMethodUpdateRequestNormalizer();
         $normalizers[] = new ChargehiveMethodUpdateResponseNormalizer();
         $normalizers[] = new ChargehiveStringTransportNormalizer();
@@ -30,6 +32,7 @@ class NormalizerFactory
         $normalizers[] = new ChtypePaymentMethodNormalizer();
         $normalizers[] = new ChtypePaymentMethodInfoNormalizer();
         $normalizers[] = new ChtypePaymentMethodSchemaCardNormalizer();
+        $normalizers[] = new ChtypeReasonNormalizer();
         $normalizers[] = new ChtypeThreeDSResultNormalizer();
         $normalizers[] = new ChtypeTransactionNormalizer();
         $normalizers[] = new ChtypeTransactionDetailNormalizer();
