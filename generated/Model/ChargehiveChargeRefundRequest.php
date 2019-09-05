@@ -25,6 +25,12 @@ class ChargehiveChargeRefundRequest implements \JsonSerializable
     /**
      * 
      *
+     * @var ChargehiveChargeRefundTransaction[]
+     */
+    protected $transactions;
+    /**
+     * 
+     *
      * @return string
      */
     public function getChargeId()
@@ -85,8 +91,29 @@ class ChargehiveChargeRefundRequest implements \JsonSerializable
         $this->reason = $reason;
         return $this;
     }
+    /**
+     * 
+     *
+     * @return ChargehiveChargeRefundTransaction[]
+     */
+    public function getTransactions()
+    {
+        return $this->transactions;
+    }
+    /**
+     * 
+     *
+     * @param ChargehiveChargeRefundTransaction[] $transactions
+     *
+     * @return self
+     */
+    public function setTransactions(array $transactions)
+    {
+        $this->transactions = $transactions;
+        return $this;
+    }
     public function jsonSerialize()
     {
-        return ['chargeId' => $this->chargeId, 'amount' => $this->amount, 'reason' => $this->reason];
+        return ['chargeId' => $this->chargeId, 'amount' => $this->amount, 'reason' => $this->reason, 'transactions' => $this->transactions];
     }
 }

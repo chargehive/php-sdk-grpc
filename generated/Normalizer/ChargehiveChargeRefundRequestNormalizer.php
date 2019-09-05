@@ -34,8 +34,15 @@ class ChargehiveChargeRefundRequestNormalizer implements DenormalizerInterface, 
         if (property_exists($data, 'amount')) {
             $object->setAmount($this->denormalizer->denormalize($data->{'amount'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeAmount', 'json', $context));
         }
-        if (property_exists($data, 'Reason')) {
-            $object->setReason($this->denormalizer->denormalize($data->{'Reason'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeReason', 'json', $context));
+        if (property_exists($data, 'reason')) {
+            $object->setReason($this->denormalizer->denormalize($data->{'reason'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeReason', 'json', $context));
+        }
+        if (property_exists($data, 'transactions')) {
+            $values = array();
+            foreach ($data->{'transactions'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveChargeRefundTransaction', 'json', $context);
+            }
+            $object->setTransactions($values);
         }
         return $object;
     }
@@ -49,7 +56,14 @@ class ChargehiveChargeRefundRequestNormalizer implements DenormalizerInterface, 
             $data->{'amount'} = $this->normalizer->normalize($object->getAmount(), 'json', $context);
         }
         if (null !== $object->getReason()) {
-            $data->{'Reason'} = $this->normalizer->normalize($object->getReason(), 'json', $context);
+            $data->{'reason'} = $this->normalizer->normalize($object->getReason(), 'json', $context);
+        }
+        if (null !== $object->getTransactions()) {
+            $values = array();
+            foreach ($object->getTransactions() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'transactions'} = $values;
         }
         return $data;
     }
