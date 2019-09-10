@@ -89,6 +89,9 @@ class ChtypeTransactionDetailNormalizer implements DenormalizerInterface, Normal
         if (property_exists($data, 'connector_library')) {
             $object->setConnectorLibrary($data->{'connector_library'});
         }
+        if (property_exists($data, 'connector_id')) {
+            $object->setConnectorId($data->{'connector_id'});
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -154,6 +157,9 @@ class ChtypeTransactionDetailNormalizer implements DenormalizerInterface, Normal
         }
         if (null !== $object->getConnectorLibrary()) {
             $data->{'connector_library'} = $object->getConnectorLibrary();
+        }
+        if (null !== $object->getConnectorId()) {
+            $data->{'connector_id'} = $object->getConnectorId();
         }
         return $data;
     }
