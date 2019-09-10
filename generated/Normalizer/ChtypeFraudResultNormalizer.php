@@ -50,6 +50,20 @@ class ChtypeFraudResultNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'connector_library')) {
             $object->setConnectorLibrary($data->{'connector_library'});
         }
+        if (property_exists($data, 'additional_data')) {
+            $values_1 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'additional_data'} as $key => $value_1) {
+                $values_1[$key] = $value_1;
+            }
+            $object->setAdditionalData($values_1);
+        }
+        if (property_exists($data, 'info_links')) {
+            $values_2 = new \ArrayObject(array(), \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'info_links'} as $key_1 => $value_2) {
+                $values_2[$key_1] = $value_2;
+            }
+            $object->setInfoLinks($values_2);
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -76,6 +90,20 @@ class ChtypeFraudResultNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getConnectorLibrary()) {
             $data->{'connector_library'} = $object->getConnectorLibrary();
+        }
+        if (null !== $object->getAdditionalData()) {
+            $values_1 = new \stdClass();
+            foreach ($object->getAdditionalData() as $key => $value_1) {
+                $values_1->{$key} = $value_1;
+            }
+            $data->{'additional_data'} = $values_1;
+        }
+        if (null !== $object->getInfoLinks()) {
+            $values_2 = new \stdClass();
+            foreach ($object->getInfoLinks() as $key_1 => $value_2) {
+                $values_2->{$key_1} = $value_2;
+            }
+            $data->{'info_links'} = $values_2;
         }
         return $data;
     }

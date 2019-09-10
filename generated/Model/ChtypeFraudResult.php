@@ -43,6 +43,18 @@ class ChtypeFraudResult implements \JsonSerializable
     /**
      * 
      *
+     * @var string[]
+     */
+    protected $additionalData;
+    /**
+     * 
+     *
+     * @var string[]
+     */
+    protected $infoLinks;
+    /**
+     * 
+     *
      * @return string
      */
     public function getFraudCheckId()
@@ -166,8 +178,50 @@ class ChtypeFraudResult implements \JsonSerializable
         $this->connectorLibrary = $connectorLibrary;
         return $this;
     }
+    /**
+     * 
+     *
+     * @return string[]
+     */
+    public function getAdditionalData()
+    {
+        return $this->additionalData;
+    }
+    /**
+     * 
+     *
+     * @param string[] $additionalData
+     *
+     * @return self
+     */
+    public function setAdditionalData(\ArrayObject $additionalData)
+    {
+        $this->additionalData = $additionalData;
+        return $this;
+    }
+    /**
+     * 
+     *
+     * @return string[]
+     */
+    public function getInfoLinks()
+    {
+        return $this->infoLinks;
+    }
+    /**
+     * 
+     *
+     * @param string[] $infoLinks
+     *
+     * @return self
+     */
+    public function setInfoLinks(\ArrayObject $infoLinks)
+    {
+        $this->infoLinks = $infoLinks;
+        return $this;
+    }
     public function jsonSerialize()
     {
-        return ['fraudCheckId' => $this->fraudCheckId, 'overallScore' => $this->overallScore, 'subScores' => $this->subScores, 'suggestedAction' => $this->suggestedAction, 'scanTime' => $this->scanTime, 'connectorLibrary' => $this->connectorLibrary];
+        return ['fraudCheckId' => $this->fraudCheckId, 'overallScore' => $this->overallScore, 'subScores' => $this->subScores, 'suggestedAction' => $this->suggestedAction, 'scanTime' => $this->scanTime, 'connectorLibrary' => $this->connectorLibrary, 'additionalData' => $this->additionalData, 'infoLinks' => $this->infoLinks];
     }
 }

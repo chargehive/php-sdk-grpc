@@ -64,14 +64,11 @@ class ChtypeTransactionDetailNormalizer implements DenormalizerInterface, Normal
         if (property_exists($data, 'failure_type')) {
             $object->setFailureType($data->{'failure_type'});
         }
-        if (property_exists($data, 'response_code')) {
-            $object->setResponseCode($data->{'response_code'});
-        }
-        if (property_exists($data, 'response_message')) {
-            $object->setResponseMessage($data->{'response_message'});
-        }
         if (property_exists($data, 'environment')) {
             $object->setEnvironment($data->{'environment'});
+        }
+        if (property_exists($data, 'response')) {
+            $object->setResponse($this->denormalizer->denormalize($data->{'response'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeResponseDetail', 'json', $context));
         }
         if (property_exists($data, 'verification_result')) {
             $object->setVerificationResult($this->denormalizer->denormalize($data->{'verification_result'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeVerificationResult', 'json', $context));
@@ -88,6 +85,9 @@ class ChtypeTransactionDetailNormalizer implements DenormalizerInterface, Normal
         }
         if (property_exists($data, 'liability')) {
             $object->setLiability($data->{'liability'});
+        }
+        if (property_exists($data, 'connector_library')) {
+            $object->setConnectorLibrary($data->{'connector_library'});
         }
         return $object;
     }
@@ -130,14 +130,11 @@ class ChtypeTransactionDetailNormalizer implements DenormalizerInterface, Normal
         if (null !== $object->getFailureType()) {
             $data->{'failure_type'} = $object->getFailureType();
         }
-        if (null !== $object->getResponseCode()) {
-            $data->{'response_code'} = $object->getResponseCode();
-        }
-        if (null !== $object->getResponseMessage()) {
-            $data->{'response_message'} = $object->getResponseMessage();
-        }
         if (null !== $object->getEnvironment()) {
             $data->{'environment'} = $object->getEnvironment();
+        }
+        if (null !== $object->getResponse()) {
+            $data->{'response'} = $this->normalizer->normalize($object->getResponse(), 'json', $context);
         }
         if (null !== $object->getVerificationResult()) {
             $data->{'verification_result'} = $this->normalizer->normalize($object->getVerificationResult(), 'json', $context);
@@ -154,6 +151,9 @@ class ChtypeTransactionDetailNormalizer implements DenormalizerInterface, Normal
         }
         if (null !== $object->getLiability()) {
             $data->{'liability'} = $object->getLiability();
+        }
+        if (null !== $object->getConnectorLibrary()) {
+            $data->{'connector_library'} = $object->getConnectorLibrary();
         }
         return $data;
     }

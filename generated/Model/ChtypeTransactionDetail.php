@@ -81,19 +81,13 @@ class ChtypeTransactionDetail implements \JsonSerializable
      *
      * @var string
      */
-    protected $responseCode;
-    /**
-     * 
-     *
-     * @var string
-     */
-    protected $responseMessage;
-    /**
-     * 
-     *
-     * @var string
-     */
     protected $environment = 'ENVIRONMENT_INVALID';
+    /**
+     * 
+     *
+     * @var ChtypeResponseDetail
+     */
+    protected $response;
     /**
      * 
      *
@@ -118,6 +112,12 @@ class ChtypeTransactionDetail implements \JsonSerializable
      * @var string
      */
     protected $liability = 'LIABILITY_INVALID';
+    /**
+     * 
+     *
+     * @var string
+     */
+    protected $connectorLibrary;
     /**
      * 
      *
@@ -375,48 +375,6 @@ class ChtypeTransactionDetail implements \JsonSerializable
      *
      * @return string
      */
-    public function getResponseCode()
-    {
-        return $this->responseCode;
-    }
-    /**
-     * 
-     *
-     * @param string $responseCode
-     *
-     * @return self
-     */
-    public function setResponseCode(string $responseCode)
-    {
-        $this->responseCode = $responseCode;
-        return $this;
-    }
-    /**
-     * 
-     *
-     * @return string
-     */
-    public function getResponseMessage()
-    {
-        return $this->responseMessage;
-    }
-    /**
-     * 
-     *
-     * @param string $responseMessage
-     *
-     * @return self
-     */
-    public function setResponseMessage(string $responseMessage)
-    {
-        $this->responseMessage = $responseMessage;
-        return $this;
-    }
-    /**
-     * 
-     *
-     * @return string
-     */
     public function getEnvironment()
     {
         return $this->environment;
@@ -431,6 +389,27 @@ class ChtypeTransactionDetail implements \JsonSerializable
     public function setEnvironment(string $environment)
     {
         $this->environment = $environment;
+        return $this;
+    }
+    /**
+     * 
+     *
+     * @return ChtypeResponseDetail
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+    /**
+     * 
+     *
+     * @param ChtypeResponseDetail $response
+     *
+     * @return self
+     */
+    public function setResponse(ChtypeResponseDetail $response)
+    {
+        $this->response = $response;
         return $this;
     }
     /**
@@ -517,8 +496,29 @@ class ChtypeTransactionDetail implements \JsonSerializable
         $this->liability = $liability;
         return $this;
     }
+    /**
+     * 
+     *
+     * @return string
+     */
+    public function getConnectorLibrary()
+    {
+        return $this->connectorLibrary;
+    }
+    /**
+     * 
+     *
+     * @param string $connectorLibrary
+     *
+     * @return self
+     */
+    public function setConnectorLibrary(string $connectorLibrary)
+    {
+        $this->connectorLibrary = $connectorLibrary;
+        return $this;
+    }
     public function jsonSerialize()
     {
-        return ['actorId' => $this->actorId, 'actorVersion' => $this->actorVersion, 'actorType' => $this->actorType, 'transactionId' => $this->transactionId, 'requestedAmount' => $this->requestedAmount, 'processedAmount' => $this->processedAmount, 'feeEstimate' => $this->feeEstimate, 'feeActual' => $this->feeActual, 'startTime' => $this->startTime, 'endTime' => $this->endTime, 'wasSuccessful' => $this->wasSuccessful, 'failureType' => $this->failureType, 'responseCode' => $this->responseCode, 'responseMessage' => $this->responseMessage, 'environment' => $this->environment, 'verificationResult' => $this->verificationResult, 'additionalData' => $this->additionalData, 'authorizationCode' => $this->authorizationCode, 'liability' => $this->liability];
+        return ['actorId' => $this->actorId, 'actorVersion' => $this->actorVersion, 'actorType' => $this->actorType, 'transactionId' => $this->transactionId, 'requestedAmount' => $this->requestedAmount, 'processedAmount' => $this->processedAmount, 'feeEstimate' => $this->feeEstimate, 'feeActual' => $this->feeActual, 'startTime' => $this->startTime, 'endTime' => $this->endTime, 'wasSuccessful' => $this->wasSuccessful, 'failureType' => $this->failureType, 'environment' => $this->environment, 'response' => $this->response, 'verificationResult' => $this->verificationResult, 'additionalData' => $this->additionalData, 'authorizationCode' => $this->authorizationCode, 'liability' => $this->liability, 'connectorLibrary' => $this->connectorLibrary];
     }
 }

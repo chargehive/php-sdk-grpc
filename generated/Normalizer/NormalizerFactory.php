@@ -34,6 +34,7 @@ class NormalizerFactory
         $normalizers[] = new ChtypePaymentMethodInfoNormalizer();
         $normalizers[] = new ChtypePaymentMethodSchemaCardNormalizer();
         $normalizers[] = new ChtypeReasonNormalizer();
+        $normalizers[] = new ChtypeResponseDetailNormalizer();
         $normalizers[] = new ChtypeThreeDSResultNormalizer();
         $normalizers[] = new ChtypeTransactionNormalizer();
         $normalizers[] = new ChtypeTransactionDetailNormalizer();

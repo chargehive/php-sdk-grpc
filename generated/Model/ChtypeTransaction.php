@@ -87,12 +87,6 @@ class ChtypeTransaction implements \JsonSerializable
      *
      * @var string
      */
-    protected $consumerMessage;
-    /**
-     * 
-     *
-     * @var string
-     */
     protected $arn;
     /**
      * 
@@ -109,12 +103,6 @@ class ChtypeTransaction implements \JsonSerializable
     /**
      * 
      *
-     * @var string
-     */
-    protected $responseCode;
-    /**
-     * 
-     *
      * @var ChtypeAttemptDetail
      */
     protected $attemptDetail;
@@ -124,6 +112,24 @@ class ChtypeTransaction implements \JsonSerializable
      * @var ChtypeFraudResult[]
      */
     protected $fraudResults;
+    /**
+     * 
+     *
+     * @var ChtypeResponseDetail
+     */
+    protected $response;
+    /**
+     * 
+     *
+     * @var string
+     */
+    protected $sourceTransactionId;
+    /**
+     * 
+     *
+     * @var string
+     */
+    protected $paymentMethodId;
     /**
      * 
      *
@@ -402,27 +408,6 @@ class ChtypeTransaction implements \JsonSerializable
      *
      * @return string
      */
-    public function getConsumerMessage()
-    {
-        return $this->consumerMessage;
-    }
-    /**
-     * 
-     *
-     * @param string $consumerMessage
-     *
-     * @return self
-     */
-    public function setConsumerMessage(string $consumerMessage)
-    {
-        $this->consumerMessage = $consumerMessage;
-        return $this;
-    }
-    /**
-     * 
-     *
-     * @return string
-     */
     public function getArn()
     {
         return $this->arn;
@@ -484,27 +469,6 @@ class ChtypeTransaction implements \JsonSerializable
     /**
      * 
      *
-     * @return string
-     */
-    public function getResponseCode()
-    {
-        return $this->responseCode;
-    }
-    /**
-     * 
-     *
-     * @param string $responseCode
-     *
-     * @return self
-     */
-    public function setResponseCode(string $responseCode)
-    {
-        $this->responseCode = $responseCode;
-        return $this;
-    }
-    /**
-     * 
-     *
      * @return ChtypeAttemptDetail
      */
     public function getAttemptDetail()
@@ -544,8 +508,71 @@ class ChtypeTransaction implements \JsonSerializable
         $this->fraudResults = $fraudResults;
         return $this;
     }
+    /**
+     * 
+     *
+     * @return ChtypeResponseDetail
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+    /**
+     * 
+     *
+     * @param ChtypeResponseDetail $response
+     *
+     * @return self
+     */
+    public function setResponse(ChtypeResponseDetail $response)
+    {
+        $this->response = $response;
+        return $this;
+    }
+    /**
+     * 
+     *
+     * @return string
+     */
+    public function getSourceTransactionId()
+    {
+        return $this->sourceTransactionId;
+    }
+    /**
+     * 
+     *
+     * @param string $sourceTransactionId
+     *
+     * @return self
+     */
+    public function setSourceTransactionId(string $sourceTransactionId)
+    {
+        $this->sourceTransactionId = $sourceTransactionId;
+        return $this;
+    }
+    /**
+     * 
+     *
+     * @return string
+     */
+    public function getPaymentMethodId()
+    {
+        return $this->paymentMethodId;
+    }
+    /**
+     * 
+     *
+     * @param string $paymentMethodId
+     *
+     * @return self
+     */
+    public function setPaymentMethodId(string $paymentMethodId)
+    {
+        $this->paymentMethodId = $paymentMethodId;
+        return $this;
+    }
     public function jsonSerialize()
     {
-        return ['tokenId' => $this->tokenId, 'transactionId' => $this->transactionId, 'details' => $this->details, 'paymentType' => $this->paymentType, 'paymentScheme' => $this->paymentScheme, 'transactionType' => $this->transactionType, 'requestAmount' => $this->requestAmount, 'transactedAmount' => $this->transactedAmount, 'contract' => $this->contract, 'statementDescriptor' => $this->statementDescriptor, 'result' => $this->result, 'verifyRequest' => $this->verifyRequest, 'failureType' => $this->failureType, 'consumerMessage' => $this->consumerMessage, 'arn' => $this->arn, 'verified' => $this->verified, 'liability' => $this->liability, 'responseCode' => $this->responseCode, 'attemptDetail' => $this->attemptDetail, 'fraudResults' => $this->fraudResults];
+        return ['tokenId' => $this->tokenId, 'transactionId' => $this->transactionId, 'details' => $this->details, 'paymentType' => $this->paymentType, 'paymentScheme' => $this->paymentScheme, 'transactionType' => $this->transactionType, 'requestAmount' => $this->requestAmount, 'transactedAmount' => $this->transactedAmount, 'contract' => $this->contract, 'statementDescriptor' => $this->statementDescriptor, 'result' => $this->result, 'verifyRequest' => $this->verifyRequest, 'failureType' => $this->failureType, 'arn' => $this->arn, 'verified' => $this->verified, 'liability' => $this->liability, 'attemptDetail' => $this->attemptDetail, 'fraudResults' => $this->fraudResults, 'response' => $this->response, 'sourceTransactionId' => $this->sourceTransactionId, 'paymentMethodId' => $this->paymentMethodId];
     }
 }

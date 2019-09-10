@@ -71,9 +71,6 @@ class ChtypeTransactionNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'failure_type')) {
             $object->setFailureType($data->{'failure_type'});
         }
-        if (property_exists($data, 'consumer_message')) {
-            $object->setConsumerMessage($data->{'consumer_message'});
-        }
         if (property_exists($data, 'arn')) {
             $object->setArn($data->{'arn'});
         }
@@ -82,9 +79,6 @@ class ChtypeTransactionNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (property_exists($data, 'liability')) {
             $object->setLiability($data->{'liability'});
-        }
-        if (property_exists($data, 'response_code')) {
-            $object->setResponseCode($data->{'response_code'});
         }
         if (property_exists($data, 'attempt_detail')) {
             $object->setAttemptDetail($this->denormalizer->denormalize($data->{'attempt_detail'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeAttemptDetail', 'json', $context));
@@ -95,6 +89,15 @@ class ChtypeTransactionNormalizer implements DenormalizerInterface, NormalizerIn
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeFraudResult', 'json', $context);
             }
             $object->setFraudResults($values_1);
+        }
+        if (property_exists($data, 'response')) {
+            $object->setResponse($this->denormalizer->denormalize($data->{'response'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeResponseDetail', 'json', $context));
+        }
+        if (property_exists($data, 'source_transaction_id')) {
+            $object->setSourceTransactionId($data->{'source_transaction_id'});
+        }
+        if (property_exists($data, 'payment_method_id')) {
+            $object->setPaymentMethodId($data->{'payment_method_id'});
         }
         return $object;
     }
@@ -144,9 +147,6 @@ class ChtypeTransactionNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getFailureType()) {
             $data->{'failure_type'} = $object->getFailureType();
         }
-        if (null !== $object->getConsumerMessage()) {
-            $data->{'consumer_message'} = $object->getConsumerMessage();
-        }
         if (null !== $object->getArn()) {
             $data->{'arn'} = $object->getArn();
         }
@@ -155,9 +155,6 @@ class ChtypeTransactionNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getLiability()) {
             $data->{'liability'} = $object->getLiability();
-        }
-        if (null !== $object->getResponseCode()) {
-            $data->{'response_code'} = $object->getResponseCode();
         }
         if (null !== $object->getAttemptDetail()) {
             $data->{'attempt_detail'} = $this->normalizer->normalize($object->getAttemptDetail(), 'json', $context);
@@ -168,6 +165,15 @@ class ChtypeTransactionNormalizer implements DenormalizerInterface, NormalizerIn
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'fraud_results'} = $values_1;
+        }
+        if (null !== $object->getResponse()) {
+            $data->{'response'} = $this->normalizer->normalize($object->getResponse(), 'json', $context);
+        }
+        if (null !== $object->getSourceTransactionId()) {
+            $data->{'source_transaction_id'} = $object->getSourceTransactionId();
+        }
+        if (null !== $object->getPaymentMethodId()) {
+            $data->{'payment_method_id'} = $object->getPaymentMethodId();
         }
         return $data;
     }
