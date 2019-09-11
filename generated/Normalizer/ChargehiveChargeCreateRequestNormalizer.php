@@ -50,6 +50,9 @@ class ChargehiveChargeCreateRequestNormalizer implements DenormalizerInterface, 
         if (property_exists($data, 'environment')) {
             $object->setEnvironment($data->{'environment'});
         }
+        if (property_exists($data, 'charge_meta')) {
+            $object->setChargeMeta($this->denormalizer->denormalize($data->{'charge_meta'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeChargeMeta', 'json', $context));
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -76,6 +79,9 @@ class ChargehiveChargeCreateRequestNormalizer implements DenormalizerInterface, 
         }
         if (null !== $object->getEnvironment()) {
             $data->{'environment'} = $object->getEnvironment();
+        }
+        if (null !== $object->getChargeMeta()) {
+            $data->{'charge_meta'} = $this->normalizer->normalize($object->getChargeMeta(), 'json', $context);
         }
         return $data;
     }

@@ -31,6 +31,18 @@ class ChargehiveChargeModifyRequest implements \JsonSerializable
     /**
      * 
      *
+     * @var ChtypeChargeMeta
+     */
+    protected $chargeMeta;
+    /**
+     * 
+     *
+     * @var string
+     */
+    protected $chargeMetaType = 'CHARGE_META_TYPE_INVALID';
+    /**
+     * 
+     *
      * @return string
      */
     public function getChargeId()
@@ -112,8 +124,50 @@ class ChargehiveChargeModifyRequest implements \JsonSerializable
         $this->expiryTime = $expiryTime;
         return $this;
     }
+    /**
+     * 
+     *
+     * @return ChtypeChargeMeta
+     */
+    public function getChargeMeta()
+    {
+        return $this->chargeMeta;
+    }
+    /**
+     * 
+     *
+     * @param ChtypeChargeMeta $chargeMeta
+     *
+     * @return self
+     */
+    public function setChargeMeta(ChtypeChargeMeta $chargeMeta)
+    {
+        $this->chargeMeta = $chargeMeta;
+        return $this;
+    }
+    /**
+     * 
+     *
+     * @return string
+     */
+    public function getChargeMetaType()
+    {
+        return $this->chargeMetaType;
+    }
+    /**
+     * 
+     *
+     * @param string $chargeMetaType
+     *
+     * @return self
+     */
+    public function setChargeMetaType(string $chargeMetaType)
+    {
+        $this->chargeMetaType = $chargeMetaType;
+        return $this;
+    }
     public function jsonSerialize()
     {
-        return ['chargeId' => $this->chargeId, 'amount' => $this->amount, 'paymentMethodIds' => $this->paymentMethodIds, 'expiryTime' => $this->expiryTime];
+        return ['chargeId' => $this->chargeId, 'amount' => $this->amount, 'paymentMethodIds' => $this->paymentMethodIds, 'expiryTime' => $this->expiryTime, 'chargeMeta' => $this->chargeMeta, 'chargeMetaType' => $this->chargeMetaType];
     }
 }

@@ -44,6 +44,12 @@ class ChargehiveChargeModifyRequestNormalizer implements DenormalizerInterface, 
         if (property_exists($data, 'expiry_time')) {
             $object->setExpiryTime(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expiry_time'}));
         }
+        if (property_exists($data, 'charge_meta')) {
+            $object->setChargeMeta($this->denormalizer->denormalize($data->{'charge_meta'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeChargeMeta', 'json', $context));
+        }
+        if (property_exists($data, 'charge_meta_type')) {
+            $object->setChargeMetaType($data->{'charge_meta_type'});
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -64,6 +70,12 @@ class ChargehiveChargeModifyRequestNormalizer implements DenormalizerInterface, 
         }
         if (null !== $object->getExpiryTime()) {
             $data->{'expiry_time'} = $object->getExpiryTime()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getChargeMeta()) {
+            $data->{'charge_meta'} = $this->normalizer->normalize($object->getChargeMeta(), 'json', $context);
+        }
+        if (null !== $object->getChargeMetaType()) {
+            $data->{'charge_meta_type'} = $object->getChargeMetaType();
         }
         return $data;
     }
