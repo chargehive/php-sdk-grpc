@@ -76,6 +76,12 @@ class ChtypeChargeItemNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'sku_code')) {
             $object->setSkuCode($data->{'sku_code'});
         }
+        if (property_exists($data, 'term_units')) {
+            $object->setTermUnits($data->{'term_units'});
+        }
+        if (property_exists($data, 'term_type')) {
+            $object->setTermType($data->{'term_type'});
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -128,6 +134,12 @@ class ChtypeChargeItemNormalizer implements DenormalizerInterface, NormalizerInt
         }
         if (null !== $object->getSkuCode()) {
             $data->{'sku_code'} = $object->getSkuCode();
+        }
+        if (null !== $object->getTermUnits()) {
+            $data->{'term_units'} = $object->getTermUnits();
+        }
+        if (null !== $object->getTermType()) {
+            $data->{'term_type'} = $object->getTermType();
         }
         return $data;
     }

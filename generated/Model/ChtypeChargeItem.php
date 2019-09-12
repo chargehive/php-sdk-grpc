@@ -103,6 +103,18 @@ class ChtypeChargeItem implements \JsonSerializable
     /**
      * 
      *
+     * @var string
+     */
+    protected $termUnits;
+    /**
+     * 
+     *
+     * @var string
+     */
+    protected $termType = 'TERM_TYPE_INVALID';
+    /**
+     * 
+     *
      * @return string
      */
     public function getSubscriptionId()
@@ -436,8 +448,50 @@ class ChtypeChargeItem implements \JsonSerializable
         $this->skuCode = $skuCode;
         return $this;
     }
+    /**
+     * 
+     *
+     * @return string
+     */
+    public function getTermUnits()
+    {
+        return $this->termUnits;
+    }
+    /**
+     * 
+     *
+     * @param string $termUnits
+     *
+     * @return self
+     */
+    public function setTermUnits(string $termUnits)
+    {
+        $this->termUnits = $termUnits;
+        return $this;
+    }
+    /**
+     * 
+     *
+     * @return string
+     */
+    public function getTermType()
+    {
+        return $this->termType;
+    }
+    /**
+     * 
+     *
+     * @param string $termType
+     *
+     * @return self
+     */
+    public function setTermType(string $termType)
+    {
+        $this->termType = $termType;
+        return $this;
+    }
     public function jsonSerialize()
     {
-        return ['subscriptionId' => $this->subscriptionId, 'renewalNumber' => $this->renewalNumber, 'duration' => $this->duration, 'startDate' => $this->startDate, 'endDate' => $this->endDate, 'productType' => $this->productType, 'skuType' => $this->skuType, 'delivery' => $this->delivery, 'quantity' => $this->quantity, 'unitPrice' => $this->unitPrice, 'taxAmount' => $this->taxAmount, 'discountAmount' => $this->discountAmount, 'name' => $this->name, 'description' => $this->description, 'productCode' => $this->productCode, 'skuCode' => $this->skuCode];
+        return ['subscriptionId' => $this->subscriptionId, 'renewalNumber' => $this->renewalNumber, 'duration' => $this->duration, 'startDate' => $this->startDate, 'endDate' => $this->endDate, 'productType' => $this->productType, 'skuType' => $this->skuType, 'delivery' => $this->delivery, 'quantity' => $this->quantity, 'unitPrice' => $this->unitPrice, 'taxAmount' => $this->taxAmount, 'discountAmount' => $this->discountAmount, 'name' => $this->name, 'description' => $this->description, 'productCode' => $this->productCode, 'skuCode' => $this->skuCode, 'termUnits' => $this->termUnits, 'termType' => $this->termType];
     }
 }
