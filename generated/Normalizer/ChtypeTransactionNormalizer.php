@@ -109,6 +109,15 @@ class ChtypeTransactionNormalizer implements DenormalizerInterface, NormalizerIn
             }
             $object->setAncillaryTransactions($values_2);
         }
+        if (property_exists($data, 'requested_connector_id')) {
+            $object->setRequestedConnectorId($data->{'requested_connector_id'});
+        }
+        if (property_exists($data, 'requested_connector_library')) {
+            $object->setRequestedConnectorLibrary($data->{'requested_connector_library'});
+        }
+        if (property_exists($data, 'transaction_time')) {
+            $object->setTransactionTime(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'transaction_time'}));
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -194,6 +203,15 @@ class ChtypeTransactionNormalizer implements DenormalizerInterface, NormalizerIn
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data->{'ancillary_transactions'} = $values_2;
+        }
+        if (null !== $object->getRequestedConnectorId()) {
+            $data->{'requested_connector_id'} = $object->getRequestedConnectorId();
+        }
+        if (null !== $object->getRequestedConnectorLibrary()) {
+            $data->{'requested_connector_library'} = $object->getRequestedConnectorLibrary();
+        }
+        if (null !== $object->getTransactionTime()) {
+            $data->{'transaction_time'} = $object->getTransactionTime()->format("Y-m-d\TH:i:sP");
         }
         return $data;
     }
