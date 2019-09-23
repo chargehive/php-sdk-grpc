@@ -55,8 +55,8 @@ class ChtypeDeviceNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (property_exists($data, 'window_outer')) {
             $object->setWindowOuter($this->denormalizer->denormalize($data->{'window_outer'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeDimension', 'json', $context));
         }
-        if (property_exists($data, 'timezone_offset')) {
-            $object->setTimezoneOffset($data->{'timezone_offset'});
+        if (property_exists($data, 'timezone_offset_mins')) {
+            $object->setTimezoneOffsetMins($data->{'timezone_offset_mins'});
         }
         if (property_exists($data, 'user_agent')) {
             $object->setUserAgent($data->{'user_agent'});
@@ -100,6 +100,9 @@ class ChtypeDeviceNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (property_exists($data, 'type')) {
             $object->setType($data->{'type'});
         }
+        if (property_exists($data, 'timezone')) {
+            $object->setTimezone($data->{'timezone'});
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -132,8 +135,8 @@ class ChtypeDeviceNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (null !== $object->getWindowOuter()) {
             $data->{'window_outer'} = $this->normalizer->normalize($object->getWindowOuter(), 'json', $context);
         }
-        if (null !== $object->getTimezoneOffset()) {
-            $data->{'timezone_offset'} = $object->getTimezoneOffset();
+        if (null !== $object->getTimezoneOffsetMins()) {
+            $data->{'timezone_offset_mins'} = $object->getTimezoneOffsetMins();
         }
         if (null !== $object->getUserAgent()) {
             $data->{'user_agent'} = $object->getUserAgent();
@@ -176,6 +179,9 @@ class ChtypeDeviceNormalizer implements DenormalizerInterface, NormalizerInterfa
         }
         if (null !== $object->getType()) {
             $data->{'type'} = $object->getType();
+        }
+        if (null !== $object->getTimezone()) {
+            $data->{'timezone'} = $object->getTimezone();
         }
         return $data;
     }

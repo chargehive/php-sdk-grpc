@@ -61,9 +61,9 @@ class ChtypeDevice implements \JsonSerializable
     /**
      * 
      *
-     * @var string
+     * @var int
      */
-    protected $timezoneOffset;
+    protected $timezoneOffsetMins;
     /**
      * 
      *
@@ -148,6 +148,12 @@ class ChtypeDevice implements \JsonSerializable
      * @var string
      */
     protected $type = 'DEVICE_TYPE_INVALID';
+    /**
+     * 
+     *
+     * @var string
+     */
+    protected $timezone;
     /**
      * 
      *
@@ -340,22 +346,22 @@ class ChtypeDevice implements \JsonSerializable
     /**
      * 
      *
-     * @return string
+     * @return int
      */
-    public function getTimezoneOffset()
+    public function getTimezoneOffsetMins()
     {
-        return $this->timezoneOffset;
+        return $this->timezoneOffsetMins;
     }
     /**
      * 
      *
-     * @param string $timezoneOffset
+     * @param int $timezoneOffsetMins
      *
      * @return self
      */
-    public function setTimezoneOffset(string $timezoneOffset)
+    public function setTimezoneOffsetMins(int $timezoneOffsetMins)
     {
-        $this->timezoneOffset = $timezoneOffset;
+        $this->timezoneOffsetMins = $timezoneOffsetMins;
         return $this;
     }
     /**
@@ -652,8 +658,29 @@ class ChtypeDevice implements \JsonSerializable
         $this->type = $type;
         return $this;
     }
+    /**
+     * 
+     *
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->timezone;
+    }
+    /**
+     * 
+     *
+     * @param string $timezone
+     *
+     * @return self
+     */
+    public function setTimezone(string $timezone)
+    {
+        $this->timezone = $timezone;
+        return $this;
+    }
     public function jsonSerialize()
     {
-        return ['browserAcceptHeader' => $this->browserAcceptHeader, 'colorDepth' => $this->colorDepth, 'javaEnabled' => $this->javaEnabled, 'javascriptEnabled' => $this->javascriptEnabled, 'language' => $this->language, 'screen' => $this->screen, 'screenAvailable' => $this->screenAvailable, 'windowInner' => $this->windowInner, 'windowOuter' => $this->windowOuter, 'timezoneOffset' => $this->timezoneOffset, 'userAgent' => $this->userAgent, 'ipAddress' => $this->ipAddress, 'cookiesEnabled' => $this->cookiesEnabled, 'flashVersion' => $this->flashVersion, 'isTouch' => $this->isTouch, 'os' => $this->os, 'osVersion' => $this->osVersion, 'browser' => $this->browser, 'browserVersion' => $this->browserVersion, 'deviceManufacturer' => $this->deviceManufacturer, 'deviceName' => $this->deviceName, 'deviceVersion' => $this->deviceVersion, 'fingerprint' => $this->fingerprint, 'type' => $this->type];
+        return ['browserAcceptHeader' => $this->browserAcceptHeader, 'colorDepth' => $this->colorDepth, 'javaEnabled' => $this->javaEnabled, 'javascriptEnabled' => $this->javascriptEnabled, 'language' => $this->language, 'screen' => $this->screen, 'screenAvailable' => $this->screenAvailable, 'windowInner' => $this->windowInner, 'windowOuter' => $this->windowOuter, 'timezoneOffsetMins' => $this->timezoneOffsetMins, 'userAgent' => $this->userAgent, 'ipAddress' => $this->ipAddress, 'cookiesEnabled' => $this->cookiesEnabled, 'flashVersion' => $this->flashVersion, 'isTouch' => $this->isTouch, 'os' => $this->os, 'osVersion' => $this->osVersion, 'browser' => $this->browser, 'browserVersion' => $this->browserVersion, 'deviceManufacturer' => $this->deviceManufacturer, 'deviceName' => $this->deviceName, 'deviceVersion' => $this->deviceVersion, 'fingerprint' => $this->fingerprint, 'type' => $this->type, 'timezone' => $this->timezone];
     }
 }

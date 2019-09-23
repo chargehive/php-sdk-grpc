@@ -133,6 +133,18 @@ class ChtypeTransaction implements \JsonSerializable
     /**
      * 
      *
+     * @var string
+     */
+    protected $transactionSubType = 'TRANSACTION_SUB_TYPE_INVALID';
+    /**
+     * 
+     *
+     * @var ChtypeTransaction[]
+     */
+    protected $ancillaryTransactions;
+    /**
+     * 
+     *
      * @return string
      */
     public function getTokenId()
@@ -571,8 +583,50 @@ class ChtypeTransaction implements \JsonSerializable
         $this->paymentMethodId = $paymentMethodId;
         return $this;
     }
+    /**
+     * 
+     *
+     * @return string
+     */
+    public function getTransactionSubType()
+    {
+        return $this->transactionSubType;
+    }
+    /**
+     * 
+     *
+     * @param string $transactionSubType
+     *
+     * @return self
+     */
+    public function setTransactionSubType(string $transactionSubType)
+    {
+        $this->transactionSubType = $transactionSubType;
+        return $this;
+    }
+    /**
+     * 
+     *
+     * @return ChtypeTransaction[]
+     */
+    public function getAncillaryTransactions()
+    {
+        return $this->ancillaryTransactions;
+    }
+    /**
+     * 
+     *
+     * @param ChtypeTransaction[] $ancillaryTransactions
+     *
+     * @return self
+     */
+    public function setAncillaryTransactions(array $ancillaryTransactions)
+    {
+        $this->ancillaryTransactions = $ancillaryTransactions;
+        return $this;
+    }
     public function jsonSerialize()
     {
-        return ['tokenId' => $this->tokenId, 'transactionId' => $this->transactionId, 'details' => $this->details, 'paymentType' => $this->paymentType, 'paymentScheme' => $this->paymentScheme, 'transactionType' => $this->transactionType, 'requestAmount' => $this->requestAmount, 'transactedAmount' => $this->transactedAmount, 'contract' => $this->contract, 'statementDescriptor' => $this->statementDescriptor, 'result' => $this->result, 'verifyRequest' => $this->verifyRequest, 'failureType' => $this->failureType, 'arn' => $this->arn, 'verified' => $this->verified, 'liability' => $this->liability, 'attemptDetail' => $this->attemptDetail, 'fraudResults' => $this->fraudResults, 'response' => $this->response, 'sourceTransactionId' => $this->sourceTransactionId, 'paymentMethodId' => $this->paymentMethodId];
+        return ['tokenId' => $this->tokenId, 'transactionId' => $this->transactionId, 'details' => $this->details, 'paymentType' => $this->paymentType, 'paymentScheme' => $this->paymentScheme, 'transactionType' => $this->transactionType, 'requestAmount' => $this->requestAmount, 'transactedAmount' => $this->transactedAmount, 'contract' => $this->contract, 'statementDescriptor' => $this->statementDescriptor, 'result' => $this->result, 'verifyRequest' => $this->verifyRequest, 'failureType' => $this->failureType, 'arn' => $this->arn, 'verified' => $this->verified, 'liability' => $this->liability, 'attemptDetail' => $this->attemptDetail, 'fraudResults' => $this->fraudResults, 'response' => $this->response, 'sourceTransactionId' => $this->sourceTransactionId, 'paymentMethodId' => $this->paymentMethodId, 'transactionSubType' => $this->transactionSubType, 'ancillaryTransactions' => $this->ancillaryTransactions];
     }
 }

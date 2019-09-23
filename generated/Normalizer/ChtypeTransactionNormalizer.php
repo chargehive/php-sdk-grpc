@@ -99,6 +99,16 @@ class ChtypeTransactionNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'payment_method_id')) {
             $object->setPaymentMethodId($data->{'payment_method_id'});
         }
+        if (property_exists($data, 'transaction_sub_type')) {
+            $object->setTransactionSubType($data->{'transaction_sub_type'});
+        }
+        if (property_exists($data, 'ancillary_transactions')) {
+            $values_2 = array();
+            foreach ($data->{'ancillary_transactions'} as $value_2) {
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeTransaction', 'json', $context);
+            }
+            $object->setAncillaryTransactions($values_2);
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -174,6 +184,16 @@ class ChtypeTransactionNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getPaymentMethodId()) {
             $data->{'payment_method_id'} = $object->getPaymentMethodId();
+        }
+        if (null !== $object->getTransactionSubType()) {
+            $data->{'transaction_sub_type'} = $object->getTransactionSubType();
+        }
+        if (null !== $object->getAncillaryTransactions()) {
+            $values_2 = array();
+            foreach ($object->getAncillaryTransactions() as $value_2) {
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            }
+            $data->{'ancillary_transactions'} = $values_2;
         }
         return $data;
     }

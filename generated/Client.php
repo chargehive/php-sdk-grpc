@@ -82,6 +82,43 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
         return $this->executePsr7Endpoint(new \ChargeHive\Php\Sdk\Generated\Endpoint\ChargeRefund($chargeId, $body), $fetch);
     }
     /**
+     * 
+     *
+     * @param \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConfigurationApplyRequest $body 
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return null|\ChargeHive\Php\Sdk\Generated\Model\ChargehiveConfigurationApplyResponse|\Psr\Http\Message\ResponseInterface
+     */
+    public function configurationApply(\ChargeHive\Php\Sdk\Generated\Model\ChargehiveConfigurationApplyRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \ChargeHive\Php\Sdk\Generated\Endpoint\ConfigurationApply($body), $fetch);
+    }
+    /**
+     * 
+     *
+     * @param string $kind 
+     * @param string $id 
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return null|\ChargeHive\Php\Sdk\Generated\Model\ChargehiveConfigurationDeleteResponse|\Psr\Http\Message\ResponseInterface
+     */
+    public function configurationDelete(string $kind, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \ChargeHive\Php\Sdk\Generated\Endpoint\ConfigurationDelete($kind, $id), $fetch);
+    }
+    /**
+     * 
+     *
+     * @param \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionValidateRequest $body 
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return null|\ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionValidateResponse|\Psr\Http\Message\ResponseInterface
+     */
+    public function connectionValidate(\ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionValidateRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \ChargeHive\Php\Sdk\Generated\Endpoint\ConnectionValidate($body), $fetch);
+    }
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\ChargeHive\Php\Sdk\Generated\Model\ChargehiveSupportedMethodUpdateTypes|\Psr\Http\Message\ResponseInterface

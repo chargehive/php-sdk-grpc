@@ -21,6 +21,11 @@ class NormalizerFactory
         $normalizers[] = new ChargehiveChargeRefundRequestNormalizer();
         $normalizers[] = new ChargehiveChargeRefundResponseNormalizer();
         $normalizers[] = new ChargehiveChargeRefundTransactionNormalizer();
+        $normalizers[] = new ChargehiveConfigurationApplyRequestNormalizer();
+        $normalizers[] = new ChargehiveConfigurationApplyResponseNormalizer();
+        $normalizers[] = new ChargehiveConfigurationDeleteResponseNormalizer();
+        $normalizers[] = new ChargehiveConnectionValidateRequestNormalizer();
+        $normalizers[] = new ChargehiveConnectionValidateResponseNormalizer();
         $normalizers[] = new ChargehiveMethodUpdateRequestNormalizer();
         $normalizers[] = new ChargehiveMethodUpdateResponseNormalizer();
         $normalizers[] = new ChargehiveStringTransportNormalizer();
