@@ -4,12 +4,12 @@
   "type": "library",
   "require": {
     "php": ">=7.2",
-    "jane-php/open-api-runtime": "^4.5.0",
+    "jane-php/open-api-runtime": "4.4.0",
     "guzzlehttp/psr7": "^1.6",
     "php-http/message": "^1.8"
   },
   "require-dev": {
-    "jane-php/jane-php": "^4.5.0",
+    "jane-php/jane-php": "4.x-dev as 4.4.0",
     "php-http/guzzle6-adapter": "^2.0"
   },
   "autoload": {

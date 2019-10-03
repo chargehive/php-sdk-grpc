@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChtypePaymentMethod
+class ChtypePaymentMethod implements \JsonSerializable
 {
     /**
      * 
@@ -21,7 +21,7 @@ class ChtypePaymentMethod
      *
      * @return string
      */
-    public function getSchema() : string
+    public function getSchema()
     {
         return $this->schema;
     }
@@ -32,7 +32,7 @@ class ChtypePaymentMethod
      *
      * @return self
      */
-    public function setSchema(string $schema) : self
+    public function setSchema(string $schema)
     {
         $this->schema = $schema;
         return $this;
@@ -42,7 +42,7 @@ class ChtypePaymentMethod
      *
      * @return string
      */
-    public function getJson() : string
+    public function getJson()
     {
         return $this->json;
     }
@@ -53,9 +53,13 @@ class ChtypePaymentMethod
      *
      * @return self
      */
-    public function setJson(string $json) : self
+    public function setJson(string $json)
     {
         $this->json = $json;
         return $this;
+    }
+    public function jsonSerialize()
+    {
+        return ['schema' => $this->schema, 'json' => $this->json];
     }
 }

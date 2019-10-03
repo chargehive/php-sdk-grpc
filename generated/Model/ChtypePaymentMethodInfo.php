@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChtypePaymentMethodInfo
+class ChtypePaymentMethodInfo implements \JsonSerializable
 {
     /**
      * 
@@ -51,7 +51,7 @@ class ChtypePaymentMethodInfo
      *
      * @return string
      */
-    public function getTokenId() : string
+    public function getTokenId()
     {
         return $this->tokenId;
     }
@@ -62,7 +62,7 @@ class ChtypePaymentMethodInfo
      *
      * @return self
      */
-    public function setTokenId(string $tokenId) : self
+    public function setTokenId(string $tokenId)
     {
         $this->tokenId = $tokenId;
         return $this;
@@ -72,7 +72,7 @@ class ChtypePaymentMethodInfo
      *
      * @return string
      */
-    public function getName() : string
+    public function getName()
     {
         return $this->name;
     }
@@ -83,7 +83,7 @@ class ChtypePaymentMethodInfo
      *
      * @return self
      */
-    public function setName(string $name) : self
+    public function setName(string $name)
     {
         $this->name = $name;
         return $this;
@@ -93,7 +93,7 @@ class ChtypePaymentMethodInfo
      *
      * @return string
      */
-    public function getPaymentScheme() : string
+    public function getPaymentScheme()
     {
         return $this->paymentScheme;
     }
@@ -104,7 +104,7 @@ class ChtypePaymentMethodInfo
      *
      * @return self
      */
-    public function setPaymentScheme(string $paymentScheme) : self
+    public function setPaymentScheme(string $paymentScheme)
     {
         $this->paymentScheme = $paymentScheme;
         return $this;
@@ -114,7 +114,7 @@ class ChtypePaymentMethodInfo
      *
      * @return \DateTime
      */
-    public function getValidFrom() : \DateTime
+    public function getValidFrom()
     {
         return $this->validFrom;
     }
@@ -125,7 +125,7 @@ class ChtypePaymentMethodInfo
      *
      * @return self
      */
-    public function setValidFrom(\DateTime $validFrom) : self
+    public function setValidFrom(\DateTime $validFrom)
     {
         $this->validFrom = $validFrom;
         return $this;
@@ -135,7 +135,7 @@ class ChtypePaymentMethodInfo
      *
      * @return \DateTime
      */
-    public function getExpiry() : \DateTime
+    public function getExpiry()
     {
         return $this->expiry;
     }
@@ -146,7 +146,7 @@ class ChtypePaymentMethodInfo
      *
      * @return self
      */
-    public function setExpiry(\DateTime $expiry) : self
+    public function setExpiry(\DateTime $expiry)
     {
         $this->expiry = $expiry;
         return $this;
@@ -156,7 +156,7 @@ class ChtypePaymentMethodInfo
      *
      * @return string
      */
-    public function getType() : string
+    public function getType()
     {
         return $this->type;
     }
@@ -167,7 +167,7 @@ class ChtypePaymentMethodInfo
      *
      * @return self
      */
-    public function setType(string $type) : self
+    public function setType(string $type)
     {
         $this->type = $type;
         return $this;
@@ -177,7 +177,7 @@ class ChtypePaymentMethodInfo
      *
      * @return string[]
      */
-    public function getInfo() : \ArrayObject
+    public function getInfo()
     {
         return $this->info;
     }
@@ -188,9 +188,13 @@ class ChtypePaymentMethodInfo
      *
      * @return self
      */
-    public function setInfo(\ArrayObject $info) : self
+    public function setInfo(\ArrayObject $info)
     {
         $this->info = $info;
         return $this;
+    }
+    public function jsonSerialize()
+    {
+        return ['tokenId' => $this->tokenId, 'name' => $this->name, 'paymentScheme' => $this->paymentScheme, 'validFrom' => $this->validFrom, 'expiry' => $this->expiry, 'type' => $this->type, 'info' => $this->info];
     }
 }
