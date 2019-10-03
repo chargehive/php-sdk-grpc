@@ -2,39 +2,39 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChargehiveConnectionValidateRequest implements \JsonSerializable
+class ChargehiveConnectionValidateRequest
 {
     /**
      * 
      *
      * @var string
      */
-    protected $requestId;
+    protected $kind;
     /**
      * 
      *
      * @var string
      */
-    protected $verificationKey;
+    protected $id;
     /**
      * 
      *
      * @return string
      */
-    public function getRequestId()
+    public function getKind() : string
     {
-        return $this->requestId;
+        return $this->kind;
     }
     /**
      * 
      *
-     * @param string $requestId
+     * @param string $kind
      *
      * @return self
      */
-    public function setRequestId(string $requestId)
+    public function setKind(string $kind) : self
     {
-        $this->requestId = $requestId;
+        $this->kind = $kind;
         return $this;
     }
     /**
@@ -42,24 +42,20 @@ class ChargehiveConnectionValidateRequest implements \JsonSerializable
      *
      * @return string
      */
-    public function getVerificationKey()
+    public function getId() : string
     {
-        return $this->verificationKey;
+        return $this->id;
     }
     /**
      * 
      *
-     * @param string $verificationKey
+     * @param string $id
      *
      * @return self
      */
-    public function setVerificationKey(string $verificationKey)
+    public function setId(string $id) : self
     {
-        $this->verificationKey = $verificationKey;
+        $this->id = $id;
         return $this;
-    }
-    public function jsonSerialize()
-    {
-        return ['requestId' => $this->requestId, 'verificationKey' => $this->verificationKey];
     }
 }

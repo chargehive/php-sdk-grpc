@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChargehiveConnectionValidateResponse
+class ChargehiveConnectionConfirmRequest
 {
     /**
      * 
@@ -16,12 +16,6 @@ class ChargehiveConnectionValidateResponse
      * @var string
      */
     protected $verificationKey;
-    /**
-     * 
-     *
-     * @var ChtypeResponseDetail
-     */
-    protected $response;
     /**
      * 
      *
@@ -62,27 +56,6 @@ class ChargehiveConnectionValidateResponse
     public function setVerificationKey(string $verificationKey) : self
     {
         $this->verificationKey = $verificationKey;
-        return $this;
-    }
-    /**
-     * 
-     *
-     * @return ChtypeResponseDetail
-     */
-    public function getResponse() : ChtypeResponseDetail
-    {
-        return $this->response;
-    }
-    /**
-     * 
-     *
-     * @param ChtypeResponseDetail $response
-     *
-     * @return self
-     */
-    public function setResponse(ChtypeResponseDetail $response) : self
-    {
-        $this->response = $response;
         return $this;
     }
 }

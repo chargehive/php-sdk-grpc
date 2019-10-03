@@ -122,12 +122,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * 
      *
      * @param string $requestId 
-     * @param \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionValidateRequest $body 
+     * @param \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionConfirmRequest $body 
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionValidateResponse|\Psr\Http\Message\ResponseInterface
      */
-    public function connectionValidationConfirm(string $requestId, \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionValidateRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function connectionValidationConfirm(string $requestId, \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionConfirmRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \ChargeHive\Php\Sdk\Generated\Endpoint\ConnectionValidationConfirm($requestId, $body), $fetch);
     }

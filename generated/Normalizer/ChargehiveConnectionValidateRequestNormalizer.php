@@ -28,22 +28,22 @@ class ChargehiveConnectionValidateRequestNormalizer implements DenormalizerInter
             throw new InvalidArgumentException();
         }
         $object = new \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionValidateRequest();
-        if (property_exists($data, 'request_id')) {
-            $object->setRequestId($data->{'request_id'});
+        if (property_exists($data, 'kind')) {
+            $object->setKind($data->{'kind'});
         }
-        if (property_exists($data, 'verification_key')) {
-            $object->setVerificationKey($data->{'verification_key'});
+        if (property_exists($data, 'id')) {
+            $object->setId($data->{'id'});
         }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
     {
         $data = new \stdClass();
-        if (null !== $object->getRequestId()) {
-            $data->{'request_id'} = $object->getRequestId();
+        if (null !== $object->getKind()) {
+            $data->{'kind'} = $object->getKind();
         }
-        if (null !== $object->getVerificationKey()) {
-            $data->{'verification_key'} = $object->getVerificationKey();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
         return $data;
     }

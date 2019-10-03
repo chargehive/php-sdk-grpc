@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChargehiveChargeCreateRequest implements \JsonSerializable
+class ChargehiveChargeCreateRequest
 {
     /**
      * 
@@ -51,7 +51,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return string
      */
-    public function getMerchantReference()
+    public function getMerchantReference() : string
     {
         return $this->merchantReference;
     }
@@ -62,7 +62,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return self
      */
-    public function setMerchantReference(string $merchantReference)
+    public function setMerchantReference(string $merchantReference) : self
     {
         $this->merchantReference = $merchantReference;
         return $this;
@@ -72,7 +72,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return ChtypeAmount
      */
-    public function getAmount()
+    public function getAmount() : ChtypeAmount
     {
         return $this->amount;
     }
@@ -83,7 +83,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return self
      */
-    public function setAmount(ChtypeAmount $amount)
+    public function setAmount(ChtypeAmount $amount) : self
     {
         $this->amount = $amount;
         return $this;
@@ -93,7 +93,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return string[]
      */
-    public function getPaymentMethodIds()
+    public function getPaymentMethodIds() : array
     {
         return $this->paymentMethodIds;
     }
@@ -104,7 +104,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return self
      */
-    public function setPaymentMethodIds(array $paymentMethodIds)
+    public function setPaymentMethodIds(array $paymentMethodIds) : self
     {
         $this->paymentMethodIds = $paymentMethodIds;
         return $this;
@@ -114,7 +114,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return \DateTime
      */
-    public function getExpiryTime()
+    public function getExpiryTime() : \DateTime
     {
         return $this->expiryTime;
     }
@@ -125,7 +125,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return self
      */
-    public function setExpiryTime(\DateTime $expiryTime)
+    public function setExpiryTime(\DateTime $expiryTime) : self
     {
         $this->expiryTime = $expiryTime;
         return $this;
@@ -135,7 +135,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return string
      */
-    public function getContractType()
+    public function getContractType() : string
     {
         return $this->contractType;
     }
@@ -146,7 +146,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return self
      */
-    public function setContractType(string $contractType)
+    public function setContractType(string $contractType) : self
     {
         $this->contractType = $contractType;
         return $this;
@@ -156,7 +156,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return string
      */
-    public function getEnvironment()
+    public function getEnvironment() : string
     {
         return $this->environment;
     }
@@ -167,7 +167,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return self
      */
-    public function setEnvironment(string $environment)
+    public function setEnvironment(string $environment) : self
     {
         $this->environment = $environment;
         return $this;
@@ -177,7 +177,7 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return ChtypeChargeMeta
      */
-    public function getChargeMeta()
+    public function getChargeMeta() : ChtypeChargeMeta
     {
         return $this->chargeMeta;
     }
@@ -188,13 +188,9 @@ class ChargehiveChargeCreateRequest implements \JsonSerializable
      *
      * @return self
      */
-    public function setChargeMeta(ChtypeChargeMeta $chargeMeta)
+    public function setChargeMeta(ChtypeChargeMeta $chargeMeta) : self
     {
         $this->chargeMeta = $chargeMeta;
         return $this;
-    }
-    public function jsonSerialize()
-    {
-        return ['merchantReference' => $this->merchantReference, 'amount' => $this->amount, 'paymentMethodIds' => $this->paymentMethodIds, 'expiryTime' => $this->expiryTime, 'contractType' => $this->contractType, 'environment' => $this->environment, 'chargeMeta' => $this->chargeMeta];
     }
 }

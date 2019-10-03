@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChtypeChargeMeta implements \JsonSerializable
+class ChtypeChargeMeta
 {
     /**
      * 
@@ -111,7 +111,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypeAddress
      */
-    public function getBillingAddress()
+    public function getBillingAddress() : ChtypeAddress
     {
         return $this->billingAddress;
     }
@@ -122,7 +122,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setBillingAddress(ChtypeAddress $billingAddress)
+    public function setBillingAddress(ChtypeAddress $billingAddress) : self
     {
         $this->billingAddress = $billingAddress;
         return $this;
@@ -132,7 +132,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypeAddress
      */
-    public function getDeliveryAddress()
+    public function getDeliveryAddress() : ChtypeAddress
     {
         return $this->deliveryAddress;
     }
@@ -143,7 +143,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setDeliveryAddress(ChtypeAddress $deliveryAddress)
+    public function setDeliveryAddress(ChtypeAddress $deliveryAddress) : self
     {
         $this->deliveryAddress = $deliveryAddress;
         return $this;
@@ -153,7 +153,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypeChargeItem[]
      */
-    public function getItems()
+    public function getItems() : array
     {
         return $this->items;
     }
@@ -164,7 +164,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setItems(array $items)
+    public function setItems(array $items) : self
     {
         $this->items = $items;
         return $this;
@@ -174,7 +174,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return string
      */
-    public function getTerms()
+    public function getTerms() : string
     {
         return $this->terms;
     }
@@ -185,7 +185,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setTerms(string $terms)
+    public function setTerms(string $terms) : self
     {
         $this->terms = $terms;
         return $this;
@@ -195,7 +195,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return string
      */
-    public function getNote()
+    public function getNote() : string
     {
         return $this->note;
     }
@@ -206,7 +206,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setNote(string $note)
+    public function setNote(string $note) : self
     {
         $this->note = $note;
         return $this;
@@ -216,7 +216,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return string
      */
-    public function getMerchantMemo()
+    public function getMerchantMemo() : string
     {
         return $this->merchantMemo;
     }
@@ -227,7 +227,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setMerchantMemo(string $merchantMemo)
+    public function setMerchantMemo(string $merchantMemo) : self
     {
         $this->merchantMemo = $merchantMemo;
         return $this;
@@ -237,7 +237,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return \DateTime
      */
-    public function getInvoiceDate()
+    public function getInvoiceDate() : \DateTime
     {
         return $this->invoiceDate;
     }
@@ -248,7 +248,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setInvoiceDate(\DateTime $invoiceDate)
+    public function setInvoiceDate(\DateTime $invoiceDate) : self
     {
         $this->invoiceDate = $invoiceDate;
         return $this;
@@ -258,7 +258,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return \DateTime
      */
-    public function getDueDate()
+    public function getDueDate() : \DateTime
     {
         return $this->dueDate;
     }
@@ -269,7 +269,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setDueDate(\DateTime $dueDate)
+    public function setDueDate(\DateTime $dueDate) : self
     {
         $this->dueDate = $dueDate;
         return $this;
@@ -279,7 +279,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypeAmount
      */
-    public function getDiscountAmount()
+    public function getDiscountAmount() : ChtypeAmount
     {
         return $this->discountAmount;
     }
@@ -290,7 +290,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setDiscountAmount(ChtypeAmount $discountAmount)
+    public function setDiscountAmount(ChtypeAmount $discountAmount) : self
     {
         $this->discountAmount = $discountAmount;
         return $this;
@@ -300,7 +300,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypeAmount
      */
-    public function getDeliveryAmount()
+    public function getDeliveryAmount() : ChtypeAmount
     {
         return $this->deliveryAmount;
     }
@@ -311,7 +311,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setDeliveryAmount(ChtypeAmount $deliveryAmount)
+    public function setDeliveryAmount(ChtypeAmount $deliveryAmount) : self
     {
         $this->deliveryAmount = $deliveryAmount;
         return $this;
@@ -321,7 +321,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypeAmount
      */
-    public function getTaxAmount()
+    public function getTaxAmount() : ChtypeAmount
     {
         return $this->taxAmount;
     }
@@ -332,7 +332,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setTaxAmount(ChtypeAmount $taxAmount)
+    public function setTaxAmount(ChtypeAmount $taxAmount) : self
     {
         $this->taxAmount = $taxAmount;
         return $this;
@@ -342,7 +342,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypeAmount
      */
-    public function getTotalAmount()
+    public function getTotalAmount() : ChtypeAmount
     {
         return $this->totalAmount;
     }
@@ -353,7 +353,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setTotalAmount(ChtypeAmount $totalAmount)
+    public function setTotalAmount(ChtypeAmount $totalAmount) : self
     {
         $this->totalAmount = $totalAmount;
         return $this;
@@ -363,7 +363,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypePerson
      */
-    public function getPerson()
+    public function getPerson() : ChtypePerson
     {
         return $this->person;
     }
@@ -374,7 +374,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setPerson(ChtypePerson $person)
+    public function setPerson(ChtypePerson $person) : self
     {
         $this->person = $person;
         return $this;
@@ -384,7 +384,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypeCompany
      */
-    public function getCompany()
+    public function getCompany() : ChtypeCompany
     {
         return $this->company;
     }
@@ -395,7 +395,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setCompany(ChtypeCompany $company)
+    public function setCompany(ChtypeCompany $company) : self
     {
         $this->company = $company;
         return $this;
@@ -405,7 +405,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return string
      */
-    public function getIpAddress()
+    public function getIpAddress() : string
     {
         return $this->ipAddress;
     }
@@ -416,7 +416,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setIpAddress(string $ipAddress)
+    public function setIpAddress(string $ipAddress) : self
     {
         $this->ipAddress = $ipAddress;
         return $this;
@@ -426,7 +426,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypeDelivery
      */
-    public function getDelivery()
+    public function getDelivery() : ChtypeDelivery
     {
         return $this->delivery;
     }
@@ -437,7 +437,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setDelivery(ChtypeDelivery $delivery)
+    public function setDelivery(ChtypeDelivery $delivery) : self
     {
         $this->delivery = $delivery;
         return $this;
@@ -447,7 +447,7 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return ChtypeDevice
      */
-    public function getDevice()
+    public function getDevice() : ChtypeDevice
     {
         return $this->device;
     }
@@ -458,13 +458,9 @@ class ChtypeChargeMeta implements \JsonSerializable
      *
      * @return self
      */
-    public function setDevice(ChtypeDevice $device)
+    public function setDevice(ChtypeDevice $device) : self
     {
         $this->device = $device;
         return $this;
-    }
-    public function jsonSerialize()
-    {
-        return ['billingAddress' => $this->billingAddress, 'deliveryAddress' => $this->deliveryAddress, 'items' => $this->items, 'terms' => $this->terms, 'note' => $this->note, 'merchantMemo' => $this->merchantMemo, 'invoiceDate' => $this->invoiceDate, 'dueDate' => $this->dueDate, 'discountAmount' => $this->discountAmount, 'deliveryAmount' => $this->deliveryAmount, 'taxAmount' => $this->taxAmount, 'totalAmount' => $this->totalAmount, 'person' => $this->person, 'company' => $this->company, 'ipAddress' => $this->ipAddress, 'delivery' => $this->delivery, 'device' => $this->device];
     }
 }

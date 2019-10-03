@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChargehiveChargeCaptureRequest implements \JsonSerializable
+class ChargehiveChargeCaptureRequest
 {
     /**
      * 
@@ -21,7 +21,7 @@ class ChargehiveChargeCaptureRequest implements \JsonSerializable
      *
      * @return string
      */
-    public function getChargeId()
+    public function getChargeId() : string
     {
         return $this->chargeId;
     }
@@ -32,7 +32,7 @@ class ChargehiveChargeCaptureRequest implements \JsonSerializable
      *
      * @return self
      */
-    public function setChargeId(string $chargeId)
+    public function setChargeId(string $chargeId) : self
     {
         $this->chargeId = $chargeId;
         return $this;
@@ -42,7 +42,7 @@ class ChargehiveChargeCaptureRequest implements \JsonSerializable
      *
      * @return ChtypeAmount
      */
-    public function getAmount()
+    public function getAmount() : ChtypeAmount
     {
         return $this->amount;
     }
@@ -53,13 +53,9 @@ class ChargehiveChargeCaptureRequest implements \JsonSerializable
      *
      * @return self
      */
-    public function setAmount(ChtypeAmount $amount)
+    public function setAmount(ChtypeAmount $amount) : self
     {
         $this->amount = $amount;
         return $this;
-    }
-    public function jsonSerialize()
-    {
-        return ['chargeId' => $this->chargeId, 'amount' => $this->amount];
     }
 }

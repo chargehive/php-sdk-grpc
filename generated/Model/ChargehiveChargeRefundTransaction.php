@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChargehiveChargeRefundTransaction implements \JsonSerializable
+class ChargehiveChargeRefundTransaction
 {
     /**
      * 
@@ -21,7 +21,7 @@ class ChargehiveChargeRefundTransaction implements \JsonSerializable
      *
      * @return string
      */
-    public function getSourceTransactionId()
+    public function getSourceTransactionId() : string
     {
         return $this->sourceTransactionId;
     }
@@ -32,7 +32,7 @@ class ChargehiveChargeRefundTransaction implements \JsonSerializable
      *
      * @return self
      */
-    public function setSourceTransactionId(string $sourceTransactionId)
+    public function setSourceTransactionId(string $sourceTransactionId) : self
     {
         $this->sourceTransactionId = $sourceTransactionId;
         return $this;
@@ -42,7 +42,7 @@ class ChargehiveChargeRefundTransaction implements \JsonSerializable
      *
      * @return ChtypeAmount
      */
-    public function getAmount()
+    public function getAmount() : ChtypeAmount
     {
         return $this->amount;
     }
@@ -53,13 +53,9 @@ class ChargehiveChargeRefundTransaction implements \JsonSerializable
      *
      * @return self
      */
-    public function setAmount(ChtypeAmount $amount)
+    public function setAmount(ChtypeAmount $amount) : self
     {
         $this->amount = $amount;
         return $this;
-    }
-    public function jsonSerialize()
-    {
-        return ['sourceTransactionId' => $this->sourceTransactionId, 'amount' => $this->amount];
     }
 }

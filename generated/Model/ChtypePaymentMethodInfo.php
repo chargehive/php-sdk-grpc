@@ -2,7 +2,7 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Model;
 
-class ChtypePaymentMethodInfo implements \JsonSerializable
+class ChtypePaymentMethodInfo
 {
     /**
      * 
@@ -51,7 +51,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return string
      */
-    public function getTokenId()
+    public function getTokenId() : string
     {
         return $this->tokenId;
     }
@@ -62,7 +62,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return self
      */
-    public function setTokenId(string $tokenId)
+    public function setTokenId(string $tokenId) : self
     {
         $this->tokenId = $tokenId;
         return $this;
@@ -72,7 +72,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return string
      */
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
@@ -83,7 +83,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return self
      */
-    public function setName(string $name)
+    public function setName(string $name) : self
     {
         $this->name = $name;
         return $this;
@@ -93,7 +93,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return string
      */
-    public function getPaymentScheme()
+    public function getPaymentScheme() : string
     {
         return $this->paymentScheme;
     }
@@ -104,7 +104,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return self
      */
-    public function setPaymentScheme(string $paymentScheme)
+    public function setPaymentScheme(string $paymentScheme) : self
     {
         $this->paymentScheme = $paymentScheme;
         return $this;
@@ -114,7 +114,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return \DateTime
      */
-    public function getValidFrom()
+    public function getValidFrom() : \DateTime
     {
         return $this->validFrom;
     }
@@ -125,7 +125,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return self
      */
-    public function setValidFrom(\DateTime $validFrom)
+    public function setValidFrom(\DateTime $validFrom) : self
     {
         $this->validFrom = $validFrom;
         return $this;
@@ -135,7 +135,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return \DateTime
      */
-    public function getExpiry()
+    public function getExpiry() : \DateTime
     {
         return $this->expiry;
     }
@@ -146,7 +146,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return self
      */
-    public function setExpiry(\DateTime $expiry)
+    public function setExpiry(\DateTime $expiry) : self
     {
         $this->expiry = $expiry;
         return $this;
@@ -156,7 +156,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return string
      */
-    public function getType()
+    public function getType() : string
     {
         return $this->type;
     }
@@ -167,7 +167,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return self
      */
-    public function setType(string $type)
+    public function setType(string $type) : self
     {
         $this->type = $type;
         return $this;
@@ -177,7 +177,7 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return string[]
      */
-    public function getInfo()
+    public function getInfo() : \ArrayObject
     {
         return $this->info;
     }
@@ -188,13 +188,9 @@ class ChtypePaymentMethodInfo implements \JsonSerializable
      *
      * @return self
      */
-    public function setInfo(\ArrayObject $info)
+    public function setInfo(\ArrayObject $info) : self
     {
         $this->info = $info;
         return $this;
-    }
-    public function jsonSerialize()
-    {
-        return ['tokenId' => $this->tokenId, 'name' => $this->name, 'paymentScheme' => $this->paymentScheme, 'validFrom' => $this->validFrom, 'expiry' => $this->expiry, 'type' => $this->type, 'info' => $this->info];
     }
 }

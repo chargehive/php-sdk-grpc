@@ -2,21 +2,21 @@
 
 namespace ChargeHive\Php\Sdk\Generated\Endpoint;
 
-class ConnectionValidationConfirm extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class ConnectionValidationConfirm extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     protected $request_id;
     /**
      * 
      *
      * @param string $requestId 
-     * @param \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionValidateRequest $body 
+     * @param \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionConfirmRequest $body 
      */
-    public function __construct(string $requestId, \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionValidateRequest $body)
+    public function __construct(string $requestId, \ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionConfirmRequest $body)
     {
         $this->request_id = $requestId;
         $this->body = $body;
     }
-    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
     public function getMethod() : string
     {
         return 'PUT';
@@ -25,7 +25,7 @@ class ConnectionValidationConfirm extends \Jane\OpenApiRuntime\Client\BaseEndpoi
     {
         return str_replace(array('{request_id}'), array($this->request_id), '/v1/connection/validate/{request_id}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -39,7 +39,7 @@ class ConnectionValidationConfirm extends \Jane\OpenApiRuntime\Client\BaseEndpoi
      *
      * @return null|\ChargeHive\Php\Sdk\Generated\Model\ChargehiveConnectionValidateResponse
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChargehiveConnectionValidateResponse', 'json');
