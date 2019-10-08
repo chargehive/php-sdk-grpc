@@ -109,6 +109,12 @@ class ChtypeChargeMeta implements \JsonSerializable
     /**
      * 
      *
+     * @var string
+     */
+    protected $customerId;
+    /**
+     * 
+     *
      * @return ChtypeAddress
      */
     public function getBillingAddress()
@@ -463,8 +469,29 @@ class ChtypeChargeMeta implements \JsonSerializable
         $this->device = $device;
         return $this;
     }
+    /**
+     * 
+     *
+     * @return string
+     */
+    public function getCustomerId()
+    {
+        return $this->customerId;
+    }
+    /**
+     * 
+     *
+     * @param string $customerId
+     *
+     * @return self
+     */
+    public function setCustomerId(string $customerId)
+    {
+        $this->customerId = $customerId;
+        return $this;
+    }
     public function jsonSerialize()
     {
-        return ['billingAddress' => $this->billingAddress, 'deliveryAddress' => $this->deliveryAddress, 'items' => $this->items, 'terms' => $this->terms, 'note' => $this->note, 'merchantMemo' => $this->merchantMemo, 'invoiceDate' => $this->invoiceDate, 'dueDate' => $this->dueDate, 'discountAmount' => $this->discountAmount, 'deliveryAmount' => $this->deliveryAmount, 'taxAmount' => $this->taxAmount, 'totalAmount' => $this->totalAmount, 'person' => $this->person, 'company' => $this->company, 'ipAddress' => $this->ipAddress, 'delivery' => $this->delivery, 'device' => $this->device];
+        return ['billingAddress' => $this->billingAddress, 'deliveryAddress' => $this->deliveryAddress, 'items' => $this->items, 'terms' => $this->terms, 'note' => $this->note, 'merchantMemo' => $this->merchantMemo, 'invoiceDate' => $this->invoiceDate, 'dueDate' => $this->dueDate, 'discountAmount' => $this->discountAmount, 'deliveryAmount' => $this->deliveryAmount, 'taxAmount' => $this->taxAmount, 'totalAmount' => $this->totalAmount, 'person' => $this->person, 'company' => $this->company, 'ipAddress' => $this->ipAddress, 'delivery' => $this->delivery, 'device' => $this->device, 'customerId' => $this->customerId];
     }
 }

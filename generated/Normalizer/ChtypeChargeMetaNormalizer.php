@@ -83,6 +83,9 @@ class ChtypeChargeMetaNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'device')) {
             $object->setDevice($this->denormalizer->denormalize($data->{'device'}, 'ChargeHive\\Php\\Sdk\\Generated\\Model\\ChtypeDevice', 'json', $context));
         }
+        if (property_exists($data, 'customer_id')) {
+            $object->setCustomerId($data->{'customer_id'});
+        }
         return $object;
     }
     public function normalize($object, $format = null, array $context = array())
@@ -142,6 +145,9 @@ class ChtypeChargeMetaNormalizer implements DenormalizerInterface, NormalizerInt
         }
         if (null !== $object->getDevice()) {
             $data->{'device'} = $this->normalizer->normalize($object->getDevice(), 'json', $context);
+        }
+        if (null !== $object->getCustomerId()) {
+            $data->{'customer_id'} = $object->getCustomerId();
         }
         return $data;
     }
