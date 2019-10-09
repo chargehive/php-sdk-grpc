@@ -10,6 +10,8 @@ class NormalizerFactory
         $normalizers[] = new \Symfony\Component\Serializer\Normalizer\ArrayDenormalizer();
         $normalizers[] = new ChargehiveChargeAuthorizeRequestNormalizer();
         $normalizers[] = new ChargehiveChargeAuthorizeResponseNormalizer();
+        $normalizers[] = new ChargehiveChargeCancelRequestNormalizer();
+        $normalizers[] = new ChargehiveChargeCancelResponseNormalizer();
         $normalizers[] = new ChargehiveChargeCaptureRequestNormalizer();
         $normalizers[] = new ChargehiveChargeCaptureResponseNormalizer();
         $normalizers[] = new ChargehiveChargeCreateRequestNormalizer();
