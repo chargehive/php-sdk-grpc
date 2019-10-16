@@ -1,2 +1,2 @@
-# php-sdk
+# php-sdk-grpc
 
