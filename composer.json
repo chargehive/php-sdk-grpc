@@ -1,6 +1,6 @@
 {
-  "name": "chargehive/php-sdk",
-  "description": "ChargeHive PHP SDK",
+  "name": "chargehive/php-sdk-grpc",
+  "description": "ChargeHive PHP SDK (GRPC)",
   "type": "library",
   "require": {
     "php": ">=7.2",
@@ -9,7 +9,7 @@
   },
   "autoload": {
     "psr-4": {
-      "ChargeHive\\Api\\Grpc\\": "generated/"
+      "ChargeHive\\Api\\Grpc\\": "generated/ChargeHive/Api/Grpc"
     }
   }
 }
